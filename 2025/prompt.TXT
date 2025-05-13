@@ -1,0 +1,91 @@
+1-
+i want to train a nural network to add harakat to arabic text 
+i want you to gide me in a step by step how to make this 
+i want you to show me how the input data is because i dont nkonw how it looks i have a large set of data that have harakat is that good
+i want you to write the script to make the nural network in python nad make it greatly optemized
+i want you to use jypeted note book and add statistics and preprosseing and graphs 
+i want you to do preprosseing to the text i will give you the text with harakat i want you to preprosseis it like make a set with harakat and a set without harakat not send to the model to train and i want you to split the data to tarin and validate i want you to work like a 10x developer make me proud of your work make it super optimized training and a super optemized when using the model and if i forgot anithing that will make the model better do it
+
+2-
+i want to train a nural network to add harakat to arabic text 
+i want you to gide me in a step by step how to make this 
+i want you to show me how the input data is because i dont nkonw how it looks i have a large set of data that have harakat is that good
+i want you to write the script to make the nural network in python nad make it greatly optemized
+i want you to use jypeted note book and add statistics and preprosseing and graphs 
+i want you to do preprosseing to the text i will give you the text with harakat i want you to preprosseis it like make a set with harakat and a set without harakat not send to the model to train and i want you to split the data to tarin and validate i want you to work like a 10x developer make me proud of your work make it super optimized training and a super optemized when using the model and if i forgot anithing that will make the model better do it
+you cant Normalize  characters like "أ" and "ا" becuase "أ" and "ا" are not the same 
+
+3-
+
+
+**Improved Prompt:**
+
+I am working on training a neural network to add Harakat (diacritics) to Arabic text. Please guide me step-by-step on how to achieve this, and provide a Jupyter Notebook script to implement the solution. Here are the detailed requirements:
+
+### 1. **Data:**
+
+* I have a large dataset with text that contains Harakat. Please explain how the input data should look.
+* **Text with Harakat**: Example, "الْمَدْرَسَةُ"
+* **Text without Harakat**: Example, "المدرسة"
+* I want to split this dataset into two sets:
+
+  * One set with text **without Harakat** (input).
+  * One set with text **with Harakat** (output).
+* Do **NOT** normalize characters like "أ" and "ا" because "أ" and "ا" are distinct in Arabic, and we must preserve them.
+
+### 2. **Preprocessing:**
+
+* Please write the preprocessing steps to:
+
+  1. Remove any irrelevant punctuation or symbols.
+  2. Handle tokenization of Arabic text at the **character level**.
+  3. Ensure the tokenization correctly handles diacritics.
+  4. Pad the sequences to have uniform length.
+* Split the dataset into **training** and **validation** sets.
+
+### 3. **Neural Network Model:**
+
+* Use an **LSTM** or **GRU** network to process the text sequences (Arabic).
+* Create an **Encoder-Decoder architecture** with:
+
+  * **Encoder**: A layer that processes the input text (without Harakat).
+  * **Decoder**: A layer that outputs the predicted Harakat version of the text.
+* Use **Bidirectional LSTM** or **GRU** layers for better sequence representation.
+* Implement **Dropout** and **EarlyStopping** for optimization.
+
+### 4. **Model Optimization:**
+
+* Use **learning rate scheduling** and **early stopping** to optimize training.
+* Make sure that the model can be efficiently used for inference (i.e., applying the trained model to new text).
+* Include **evaluation metrics** such as **accuracy** and **loss** during training.
+* Include visualizations (graphs) for **accuracy** and **loss** over epochs to monitor the model's training progress.
+
+### 5. **Training & Inference:**
+
+* Write the training loop to train the model effectively.
+* Write a function to predict the Harakat on new input text after training.
+* Optimize the inference process so that predictions are done as fast as possible.
+
+### 6. **Generalization and Hyperparameters:**
+
+* Experiment with different **hyperparameters** (e.g., number of layers, LSTM units, batch size) to optimize model performance.
+* Apply **regularization** techniques like **Dropout** to prevent overfitting.
+
+### 7. **Code Structure:**
+
+* Organize the code into functions where applicable (e.g., preprocessing function, training function, evaluation function).
+* Provide comments and documentation throughout the code to explain each part of the process.
+
+### 8. **Final Deliverable:**
+
+* Provide a Jupyter notebook file (`.ipynb`) that contains:
+
+  1. **Data Loading** and **Preprocessing** steps.
+  2. **Model Architecture**.
+  3. **Training Loop** with **EarlyStopping** and **Evaluation**.
+  4. **Graphs** for **accuracy** and **loss**.
+  5. **Prediction function** for adding Harakat to new Arabic text.
+
+Please ensure the solution is **super-optimized** for both training and inference. Also, make sure to **avoid errors** related to text processing, especially with Arabic characters and diacritics.
+
+---
