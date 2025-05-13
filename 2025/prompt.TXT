@@ -395,3 +395,11 @@ Here’s the **complete, updated prompt** to send to your AI agent, incorporatin
 --- 
 
 This prompt is ready to be sent to your AI agent! 🚀
+
+
+7-
+use 
+Neural Architecture Search (NAS)
+to get the best Architecture 
+
+make it use pytorch and gpu
