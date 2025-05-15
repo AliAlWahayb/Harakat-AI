@@ -6,3 +6,8 @@ scikit-learn>=1.3.0
 tqdm>=4.65.0
 seaborn>=0.12.0
 ipython>=8.10.0
+arabic-reshaper
+python-bidi
+colorama
+pillow
+gradio
