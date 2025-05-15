@@ -14,6 +14,11 @@ import unicodedata
 from tqdm import tqdm
 import glob
 import pickle
+import time
+import json
+from datetime import datetime
+import itertools
+
 
 # Constants
 MAX_SEQUENCE_LENGTH = 256
@@ -22,7 +27,7 @@ EMBEDDING_DIM = 256
 HIDDEN_DIM = 512
 DROPOUT_RATE = 0.5
 LEARNING_RATE = 1e-3
-EPOCHS = 50
+EPOCHS = 500
 
 # Set device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -731,24 +736,41 @@ def load_csv_data_from_directory(directory_path, column_name='text_with_harakat'
     return all_samples
 
 
-def main():
-    print("Arabic Diacritization Neural Network (PyTorch Version)")
-    print("=" * 50)
-    print(f"Using device: {device}")
+
+def train_model(
+    max_sequence_length=256, 
+    batch_size=32, 
+    embedding_dim=256, 
+    hidden_dim=512, 
+    dropout_rate=0.2, 
+    learning_rate=1e-3, 
+    epochs=50,
+    patience=5,
+    data_directory="data/",
+    results_dir="results/"
+):
+    """Train a model with the given hyperparameters and return metrics"""
+    
+    # Create model name based on hyperparameters
+    model_name = f"ADNN_{max_sequence_length}_{batch_size}_{embedding_dim}_{hidden_dim}_{dropout_rate}_{learning_rate}_{epochs}"
+    print(f"\n{'='*80}\nTraining model: {model_name}\n{'='*80}")
+    
+    # Create directories
+    os.makedirs(f"checkpoints/{model_name}", exist_ok=True)
+    os.makedirs(f"models/{model_name}", exist_ok=True)
+    os.makedirs(results_dir, exist_ok=True)
+    
+    checkpoint_path = f"checkpoints/{model_name}/{model_name}.pt"
+    processor_path = f"models/{model_name}/{model_name}_processor.pkl"
+    model_path = f"models/{model_name}/{model_name}.pt"
     
     # 1. Load data from CSV files
     print("Loading data from CSV files...")
-    data_directory = "data/"  # Replace with your directory path
     diacritized_texts = load_csv_data_from_directory(data_directory)
-    
-    # Print some statistics
-    print(f"Loaded {len(diacritized_texts)} text samples")
-    if diacritized_texts:
-        print(f"First sample: {diacritized_texts[0][:100]}...")
     
     # 2. Initialize data processor
     print("Initializing data processor...")
-    data_processor = ArabicDiacriticsDataProcessor()
+    data_processor = ArabicDiacriticsDataProcessor(max_sequence_length=max_sequence_length)
     
     # 3. Prepare dataset
     print("Preparing dataset...")
@@ -758,7 +780,7 @@ def main():
     print("Applying data augmentation...")
     augmented_inputs, augmented_targets = data_processor.data_augmentation(inputs, targets)
     
-    # 4. Split dataset - FIXED VARIABLE NAMES
+    # 4. Split dataset
     print("Splitting dataset...")
     # First split: separate test set
     inputs_train_val, inputs_test, targets_train_val, targets_test = train_test_split(
@@ -775,59 +797,303 @@ def main():
     print(f"Validation set: {len(inputs_val)} samples")
     print(f"Test set: {len(inputs_test)} samples")
     
-    # 5. Create PyTorch datasets and dataloaders - FIXED VARIABLE NAMES
+    # 5. Create PyTorch datasets and dataloaders
     print("Creating PyTorch datasets and dataloaders...")
     train_dataset = ArabicDiacriticsDataset(inputs_train, targets_train, data_processor)
     val_dataset = ArabicDiacriticsDataset(inputs_val, targets_val, data_processor)
     test_dataset = ArabicDiacriticsDataset(inputs_test, targets_test, data_processor)
     
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE)
-    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size)
     
     # 6. Initialize model
     print("Initializing model...")
     model = SimplifiedArabicDiacritizationModel(
         vocab_size=len(data_processor.char_to_idx),
-        diacritic_size=len(data_processor.diacritic_to_idx)
+        diacritic_size=len(data_processor.diacritic_to_idx),
+        max_sequence_length=max_sequence_length,
+        embedding_dim=embedding_dim,
+        hidden_dim=hidden_dim,
+        dropout_rate=dropout_rate
     )
     
     # Print model summary
-    print(model)
     total_params = sum(p.numel() for p in model.parameters())
     print(f"Total parameters: {total_params:,}")
     
     # 7. Train model
     print("Training model...")
-    os.makedirs('checkpoints', exist_ok=True)
+    start_time = time.time()
+    
     trainer = DiacritizationTrainer(
         model=model,
         train_loader=train_loader,
         val_loader=val_loader,
-        learning_rate=LEARNING_RATE,
+        learning_rate=learning_rate,
         device=device
     )
     
     model = trainer.train(
-        epochs=EPOCHS,
-        checkpoint_path='checkpoints/pytorch_diacritization.pt',
-        patience=5
+        epochs=epochs,
+        checkpoint_path=checkpoint_path,
+        patience=patience
     )
     
-    # 8. Evaluate model - FIXED VARIABLE NAMES
+    training_time = time.time() - start_time
+    
+    # 8. Evaluate model
     print("Evaluating model...")
     evaluator = DiacritizationEvaluator(model, data_processor, device)
+    
+    # Measure inference time
+    inference_start_time = time.time()
     metrics = evaluator.evaluate(test_loader, inputs_test, targets_test)
+    inference_time = time.time() - inference_start_time
     
     # 9. Save model and processor
     print("Saving model and processor...")
-    os.makedirs('models', exist_ok=True)
     
     # Save processor for later use
-    with open('models/pytorch_diacritization_processor.pkl', 'wb') as f:
+    with open(processor_path, 'wb') as f:
         pickle.dump(data_processor, f)
     
-    print("Training complete!")
+    # Save final model
+    torch.save({
+        'model_state_dict': model.state_dict(),
+        'hyperparameters': {
+            'max_sequence_length': max_sequence_length,
+            'embedding_dim': embedding_dim,
+            'hidden_dim': hidden_dim,
+            'dropout_rate': dropout_rate
+        }
+    }, model_path)
+    
+    # 10. Save results
+    results = {
+        'model_name': model_name,
+        'hyperparameters': {
+            'max_sequence_length': max_sequence_length,
+            'batch_size': batch_size,
+            'embedding_dim': embedding_dim,
+            'hidden_dim': hidden_dim,
+            'dropout_rate': dropout_rate,
+            'learning_rate': learning_rate,
+            'epochs': epochs,
+            'patience': patience
+        },
+        'metrics': metrics,
+        'model_size': total_params,
+        'training_time': training_time,
+        'inference_time': inference_time,
+        'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+    
+    # Save results to JSON
+    with open(f"{results_dir}/{model_name}_results.json", 'w') as f:
+        json.dump(results, f, indent=4)
+    
+    print(f"Training complete for {model_name}!")
+    print(f"Results saved to {results_dir}/{model_name}_results.json")
+    
+    return results
+
+
+def run_hyperparameter_optimization():
+    """Run hyperparameter optimization with multiple combinations"""
+    
+    # Define hyperparameter grid
+    param_grid = {
+        'max_sequence_length': [128, 256, 512],
+        'batch_size': [128, 64],
+        'embedding_dim': [128, 256],
+        'hidden_dim': [256, 512],
+        'dropout_rate': [0.3, 0.5, 0.7],
+        'learning_rate': [1e-3, 5e-4],
+        'epochs': [500],  # Set to a high value, early stopping will prevent overfitting
+        'patience': [5]
+    }
+    
+    # Create all combinations of hyperparameters
+    keys = list(param_grid.keys())
+    combinations = list(itertools.product(*[param_grid[key] for key in keys]))
+    
+    # Create results directory with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    results_dir = f"results/optimization_{timestamp}"
+    os.makedirs(results_dir, exist_ok=True)
+    
+    # Save parameter grid for reference
+    with open(f"{results_dir}/param_grid.json", 'w') as f:
+        json.dump(param_grid, f, indent=4)
+    
+    # Train models with each combination
+    all_results = []
+    
+    print(f"Starting hyperparameter optimization with {len(combinations)} combinations")
+    
+    for i, combination in enumerate(combinations):
+        print(f"\nCombination {i+1}/{len(combinations)}")
+        
+        # Create parameter dictionary
+        params = dict(zip(keys, combination))
+        
+        # Train model with these parameters
+        try:
+            result = train_model(**params, results_dir=results_dir)
+            all_results.append(result)
+        except Exception as e:
+            print(f"Error training model with parameters {params}: {str(e)}")
+            # Log the error
+            with open(f"{results_dir}/errors.log", 'a') as f:
+                f.write(f"Error with parameters {params}: {str(e)}\n")
+    
+    # Save all results
+    with open(f"{results_dir}/all_results.json", 'w') as f:
+        json.dump(all_results, f, indent=4)
+    
+    # Create comparison report
+    create_comparison_report(all_results, results_dir)
+    
+    return all_results
+
+
+def create_comparison_report(results, results_dir):
+    """Create a comparison report of all models"""
+    
+    if not results:
+        print("No results to compare")
+        return
+    
+    # Extract key metrics for comparison
+    comparison = []
+    
+    for result in results:
+        comparison.append({
+            'model_name': result['model_name'],
+            'character_accuracy': result['metrics']['character_accuracy'],
+            'word_accuracy': result['metrics']['word_accuracy'],
+            'diacritic_error_rate': result['metrics']['diacritic_error_rate'],
+            'model_size': result['model_size'],
+            'training_time': result['training_time'],
+            'inference_time': result['inference_time'],
+            **result['hyperparameters']
+        })
+    
+    # Convert to DataFrame for easier analysis
+    df = pd.DataFrame(comparison)
+    
+    # Sort by character accuracy (descending)
+    df_sorted = df.sort_values('character_accuracy', ascending=False)
+    
+    # Save comparison to CSV
+    df_sorted.to_csv(f"{results_dir}/comparison.csv", index=False)
+    
+    # Create visualizations
+    create_visualizations(df, results_dir)
+    
+    # Print top 3 models
+    print("\nTop 3 models by character accuracy:")
+    for i, row in df_sorted.head(3).iterrows():
+        print(f"{i+1}. {row['model_name']}: {row['character_accuracy']:.4f}")
+    
+    return df_sorted
+
+
+def create_visualizations(df, results_dir):
+    """Create visualizations for hyperparameter comparison"""
+    
+    # Create directory for visualizations
+    viz_dir = f"{results_dir}/visualizations"
+    os.makedirs(viz_dir, exist_ok=True)
+    
+    # Set style
+    plt.style.use('ggplot')
+    
+    # 1. Accuracy vs Model Size
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['model_size'], df['character_accuracy'], alpha=0.7)
+    for i, row in df.iterrows():
+        plt.annotate(row['model_name'].split('_')[1:4], 
+                    (row['model_size'], row['character_accuracy']),
+                    fontsize=8)
+    plt.xlabel('Model Size (parameters)')
+    plt.ylabel('Character Accuracy')
+    plt.title('Model Size vs Accuracy')
+    plt.tight_layout()
+    plt.savefig(f"{viz_dir}/model_size_vs_accuracy.png", dpi=300)
+    plt.close()
+    
+    # 2. Training Time vs Accuracy
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['training_time'] / 60, df['character_accuracy'], alpha=0.7)
+    plt.xlabel('Training Time (minutes)')
+    plt.ylabel('Character Accuracy')
+    plt.title('Training Time vs Accuracy')
+    plt.tight_layout()
+    plt.savefig(f"{viz_dir}/training_time_vs_accuracy.png", dpi=300)
+    plt.close()
+    
+    # 3. Hyperparameter Heatmaps
+    for param in ['max_sequence_length', 'batch_size', 'embedding_dim', 'hidden_dim', 'dropout_rate', 'learning_rate']:
+        if len(df[param].unique()) > 1:  # Only create heatmap if there are multiple values
+            plt.figure(figsize=(10, 6))
+            pivot = df.pivot_table(index='dropout_rate', columns=param, values='character_accuracy', aggfunc='mean')
+            sns.heatmap(pivot, annot=True, cmap='viridis', fmt='.4f')
+            plt.title(f'Impact of {param} on Accuracy')
+            plt.tight_layout()
+            plt.savefig(f"{viz_dir}/{param}_heatmap.png", dpi=300)
+            plt.close()
+    
+    # 4. Bar chart of top models
+    top_models = df.sort_values('character_accuracy', ascending=False).head(5)
+    plt.figure(figsize=(12, 6))
+    bars = plt.bar(top_models['model_name'], top_models['character_accuracy'])
+    plt.xlabel('Model')
+    plt.ylabel('Character Accuracy')
+    plt.title('Top 5 Models by Character Accuracy')
+    plt.xticks(rotation=45, ha='right')
+    
+    # Add values on top of bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.001,
+                f'{height:.4f}', ha='center', va='bottom', fontsize=9)
+    
+    plt.tight_layout()
+    plt.savefig(f"{viz_dir}/top_models.png", dpi=300)
+    plt.close()
+    
+    # 5. Correlation matrix
+    numeric_cols = ['max_sequence_length', 'batch_size', 'embedding_dim', 'hidden_dim', 
+                    'dropout_rate', 'learning_rate', 'character_accuracy', 'word_accuracy', 
+                    'diacritic_error_rate', 'model_size', 'training_time', 'inference_time']
+    
+    corr = df[numeric_cols].corr()
+    plt.figure(figsize=(12, 10))
+    sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+    plt.title('Correlation Matrix of Hyperparameters and Metrics')
+    plt.tight_layout()
+    plt.savefig(f"{viz_dir}/correlation_matrix.png", dpi=300)
+    plt.close()
+
+
+def main():
+    """Main function to run hyperparameter optimization"""
+    print("Arabic Diacritization Neural Network - Hyperparameter Optimization")
+    print("=" * 80)
+    
+    # Check if CUDA is available
+    if torch.cuda.is_available():
+        print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+    else:
+        print("CUDA is not available. Using CPU.")
+    
+    # Run hyperparameter optimization
+    results = run_hyperparameter_optimization()
+    
+    print("\nHyperparameter optimization complete!")
+    print(f"Results saved to results/optimization_*")
 
 
 if __name__ == "__main__":
