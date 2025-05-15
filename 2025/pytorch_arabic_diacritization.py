@@ -1034,15 +1034,35 @@ def create_visualizations(df, results_dir):
     plt.savefig(f"{viz_dir}/training_time_vs_accuracy.png", dpi=300)
     plt.close()
     
-    # 3. Hyperparameter Heatmaps
-    for param in ['max_sequence_length', 'batch_size', 'embedding_dim', 'hidden_dim', 'dropout_rate', 'learning_rate']:
-        if len(df[param].unique()) > 1:  # Only create heatmap if there are multiple values
+    # 3. Hyperparameter Heatmaps - MODIFIED THIS SECTION
+    # First check if we have enough data for heatmaps
+    if len(df) >= 4:  # Need at least a few data points for meaningful heatmaps
+        for param in ['max_sequence_length', 'batch_size', 'embedding_dim', 'hidden_dim', 'learning_rate']:
+            # Skip pivot tables and use simpler visualizations
+            if len(df[param].unique()) > 1:
+                plt.figure(figsize=(10, 6))
+                # Group by parameter and calculate mean accuracy
+                grouped = df.groupby(param)['character_accuracy'].mean().reset_index()
+                plt.bar(grouped[param].astype(str), grouped['character_accuracy'])
+                plt.xlabel(param)
+                plt.ylabel('Mean Character Accuracy')
+                plt.title(f'Impact of {param} on Accuracy')
+                plt.tight_layout()
+                plt.savefig(f"{viz_dir}/{param}_impact.png", dpi=300)
+                plt.close()
+        
+        # Special handling for dropout_rate
+        if 'dropout_rate' in df.columns and len(df['dropout_rate'].unique()) > 1:
             plt.figure(figsize=(10, 6))
-            pivot = df.pivot_table(index='dropout_rate', columns=param, values='character_accuracy', aggfunc='mean')
-            sns.heatmap(pivot, annot=True, cmap='viridis', fmt='.4f')
-            plt.title(f'Impact of {param} on Accuracy')
+            # Ensure dropout_rate is treated as a simple value
+            df['dropout_rate_str'] = df['dropout_rate'].astype(str)
+            grouped = df.groupby('dropout_rate_str')['character_accuracy'].mean().reset_index()
+            plt.bar(grouped['dropout_rate_str'], grouped['character_accuracy'])
+            plt.xlabel('Dropout Rate')
+            plt.ylabel('Mean Character Accuracy')
+            plt.title('Impact of Dropout Rate on Accuracy')
             plt.tight_layout()
-            plt.savefig(f"{viz_dir}/{param}_heatmap.png", dpi=300)
+            plt.savefig(f"{viz_dir}/dropout_rate_impact.png", dpi=300)
             plt.close()
     
     # 4. Bar chart of top models
@@ -1064,10 +1084,23 @@ def create_visualizations(df, results_dir):
     plt.savefig(f"{viz_dir}/top_models.png", dpi=300)
     plt.close()
     
-    # 5. Correlation matrix
-    numeric_cols = ['max_sequence_length', 'batch_size', 'embedding_dim', 'hidden_dim', 
-                    'dropout_rate', 'learning_rate', 'character_accuracy', 'word_accuracy', 
-                    'diacritic_error_rate', 'model_size', 'training_time', 'inference_time']
+    # 5. Correlation matrix - MODIFIED THIS SECTION
+    try:
+        # Select only numeric columns
+        numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+        # Remove any problematic columns
+        safe_cols = [col for col in numeric_cols if df[col].apply(lambda x: isinstance(x, (int, float))).all()]
+        
+        if len(safe_cols) >= 2:  # Need at least 2 columns for correlation
+            corr = df[safe_cols].corr()
+            plt.figure(figsize=(12, 10))
+            sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+            plt.title('Correlation Matrix of Hyperparameters and Metrics')
+            plt.tight_layout()
+            plt.savefig(f"{viz_dir}/correlation_matrix.png", dpi=300)
+            plt.close()
+    except Exception as e:
+        print(f"Error creating correlation matrix: {str(e)}")
     
     corr = df[numeric_cols].corr()
     plt.figure(figsize=(12, 10))

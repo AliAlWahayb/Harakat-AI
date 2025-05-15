@@ -1,0 +1,3170 @@
+[
+    {
+        "model_name": "ADNN_128_128_128_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9283406405316101,
+            "word_accuracy": 0.8862439435432905,
+            "diacritic_error_rate": 0.09616868089483158
+        },
+        "model_size": 1177997,
+        "training_time": 244.900324344635,
+        "inference_time": 0.41660523414611816,
+        "timestamp": "2025-05-14 05:09:22"
+    },
+    {
+        "model_name": "ADNN_128_128_128_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9130822396235433,
+            "word_accuracy": 0.8700058418633004,
+            "diacritic_error_rate": 0.11497892110470619
+        },
+        "model_size": 1177997,
+        "training_time": 254.95978140830994,
+        "inference_time": 0.40073060989379883,
+        "timestamp": "2025-05-14 05:13:39"
+    },
+    {
+        "model_name": "ADNN_128_128_128_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9025846610272924,
+            "word_accuracy": 0.8550689957725134,
+            "diacritic_error_rate": 0.1266985204000071
+        },
+        "model_size": 1177997,
+        "training_time": 180.3800082206726,
+        "inference_time": 0.3980245590209961,
+        "timestamp": "2025-05-14 05:16:42"
+    },
+    {
+        "model_name": "ADNN_128_128_128_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8940205478146503,
+            "word_accuracy": 0.8497546640077668,
+            "diacritic_error_rate": 0.135094814415386
+        },
+        "model_size": 1177997,
+        "training_time": 240.8578498363495,
+        "inference_time": 0.39780282974243164,
+        "timestamp": "2025-05-14 05:20:45"
+    },
+    {
+        "model_name": "ADNN_128_128_128_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8695895626854807,
+            "word_accuracy": 0.8209832195822856,
+            "diacritic_error_rate": 0.15774603118543504
+        },
+        "model_size": 1177997,
+        "training_time": 219.4878695011139,
+        "inference_time": 0.38187336921691895,
+        "timestamp": "2025-05-14 05:24:27"
+    },
+    {
+        "model_name": "ADNN_128_128_128_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.870989792198323,
+            "word_accuracy": 0.8159387407827566,
+            "diacritic_error_rate": 0.1669146952669301
+        },
+        "model_size": 1177997,
+        "training_time": 217.90926480293274,
+        "inference_time": 0.4069960117340088,
+        "timestamp": "2025-05-14 05:28:08"
+    },
+    {
+        "model_name": "ADNN_128_128_128_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9288469741649511,
+            "word_accuracy": 0.889816275637437,
+            "diacritic_error_rate": 0.0924941155958504
+        },
+        "model_size": 3151501,
+        "training_time": 285.59756541252136,
+        "inference_time": 0.5942888259887695,
+        "timestamp": "2025-05-14 05:32:56"
+    },
+    {
+        "model_name": "ADNN_128_128_128_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9345126706551499,
+            "word_accuracy": 0.8909115720524018,
+            "diacritic_error_rate": 0.08613569321533923
+        },
+        "model_size": 3151501,
+        "training_time": 520.1346530914307,
+        "inference_time": 0.5838122367858887,
+        "timestamp": "2025-05-14 05:41:39"
+    },
+    {
+        "model_name": "ADNN_128_128_128_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9297562248397196,
+            "word_accuracy": 0.8865545098248327,
+            "diacritic_error_rate": 0.08589951377633712
+        },
+        "model_size": 3151501,
+        "training_time": 449.6934642791748,
+        "inference_time": 0.5706098079681396,
+        "timestamp": "2025-05-14 05:49:11"
+    },
+    {
+        "model_name": "ADNN_128_128_128_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9019998139707934,
+            "word_accuracy": 0.8592319885463006,
+            "diacritic_error_rate": 0.12951060187934468
+        },
+        "model_size": 3151501,
+        "training_time": 335.0215072631836,
+        "inference_time": 0.5766799449920654,
+        "timestamp": "2025-05-14 05:54:49"
+    },
+    {
+        "model_name": "ADNN_128_128_128_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8865389423388553,
+            "word_accuracy": 0.8386173773088419,
+            "diacritic_error_rate": 0.1461078681533783
+        },
+        "model_size": 3151501,
+        "training_time": 269.27627301216125,
+        "inference_time": 0.5694830417633057,
+        "timestamp": "2025-05-14 05:59:21"
+    },
+    {
+        "model_name": "ADNN_128_128_128_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.886070341147969,
+            "word_accuracy": 0.8293951875135487,
+            "diacritic_error_rate": 0.14328923164001697
+        },
+        "model_size": 3151501,
+        "training_time": 341.72219944000244,
+        "inference_time": 0.5684013366699219,
+        "timestamp": "2025-05-14 06:05:05"
+    },
+    {
+        "model_name": "ADNN_128_128_256_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9244227386699599,
+            "word_accuracy": 0.8871101871101871,
+            "diacritic_error_rate": 0.09636964857353925
+        },
+        "model_size": 1430669,
+        "training_time": 210.51341319084167,
+        "inference_time": 0.39527177810668945,
+        "timestamp": "2025-05-14 06:08:38"
+    },
+    {
+        "model_name": "ADNN_128_128_256_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9188635900476129,
+            "word_accuracy": 0.8787870981038747,
+            "diacritic_error_rate": 0.10405370063638741
+        },
+        "model_size": 1430669,
+        "training_time": 258.88038969039917,
+        "inference_time": 0.41172242164611816,
+        "timestamp": "2025-05-14 06:12:59"
+    },
+    {
+        "model_name": "ADNN_128_128_256_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9158880987593097,
+            "word_accuracy": 0.8776286408362575,
+            "diacritic_error_rate": 0.10344481773053202
+        },
+        "model_size": 1430669,
+        "training_time": 282.88071608543396,
+        "inference_time": 0.40071821212768555,
+        "timestamp": "2025-05-14 06:17:44"
+    },
+    {
+        "model_name": "ADNN_128_128_256_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9066211115091064,
+            "word_accuracy": 0.8649299804246349,
+            "diacritic_error_rate": 0.11213761246509704
+        },
+        "model_size": 1430669,
+        "training_time": 334.7333302497864,
+        "inference_time": 0.3966236114501953,
+        "timestamp": "2025-05-14 06:23:21"
+    },
+    {
+        "model_name": "ADNN_128_128_256_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8761168622038187,
+            "word_accuracy": 0.8233412850289669,
+            "diacritic_error_rate": 0.15644918899310772
+        },
+        "model_size": 1430669,
+        "training_time": 218.33309197425842,
+        "inference_time": 0.3990199565887451,
+        "timestamp": "2025-05-14 06:27:02"
+    },
+    {
+        "model_name": "ADNN_128_128_256_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.873243489075755,
+            "word_accuracy": 0.8229909226114159,
+            "diacritic_error_rate": 0.16633777482842324
+        },
+        "model_size": 1430669,
+        "training_time": 239.4743423461914,
+        "inference_time": 0.39569783210754395,
+        "timestamp": "2025-05-14 06:31:04"
+    },
+    {
+        "model_name": "ADNN_128_128_256_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9370298948061088,
+            "word_accuracy": 0.8974579922447221,
+            "diacritic_error_rate": 0.08045720562239346
+        },
+        "model_size": 3404173,
+        "training_time": 308.5121009349823,
+        "inference_time": 0.6183075904846191,
+        "timestamp": "2025-05-14 06:36:15"
+    },
+    {
+        "model_name": "ADNN_128_128_256_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9315543768505568,
+            "word_accuracy": 0.893672570902017,
+            "diacritic_error_rate": 0.08939598693101147
+        },
+        "model_size": 3404173,
+        "training_time": 423.8357353210449,
+        "inference_time": 0.5850615501403809,
+        "timestamp": "2025-05-14 06:43:21"
+    },
+    {
+        "model_name": "ADNN_128_128_256_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9366126755955997,
+            "word_accuracy": 0.8986201811670529,
+            "diacritic_error_rate": 0.0789992258427757
+        },
+        "model_size": 3404173,
+        "training_time": 608.7179398536682,
+        "inference_time": 0.5853922367095947,
+        "timestamp": "2025-05-14 06:53:32"
+    },
+    {
+        "model_name": "ADNN_128_128_256_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9085549468490367,
+            "word_accuracy": 0.8642441124335275,
+            "diacritic_error_rate": 0.11655385244923361
+        },
+        "model_size": 3404173,
+        "training_time": 315.4998137950897,
+        "inference_time": 0.6016039848327637,
+        "timestamp": "2025-05-14 06:58:50"
+    },
+    {
+        "model_name": "ADNN_128_128_256_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9162586914789063,
+            "word_accuracy": 0.868210627657583,
+            "diacritic_error_rate": 0.10543948869493505
+        },
+        "model_size": 3404173,
+        "training_time": 740.5846834182739,
+        "inference_time": 0.61122727394104,
+        "timestamp": "2025-05-14 07:11:14"
+    },
+    {
+        "model_name": "ADNN_128_128_256_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.874636435441156,
+            "word_accuracy": 0.8281070599341719,
+            "diacritic_error_rate": 0.15524001271590548
+        },
+        "model_size": 3404173,
+        "training_time": 279.3134458065033,
+        "inference_time": 0.588510274887085,
+        "timestamp": "2025-05-14 07:15:55"
+    },
+    {
+        "model_name": "ADNN_128_64_128_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9330320806084931,
+            "word_accuracy": 0.8896446418656302,
+            "diacritic_error_rate": 0.0892075151857607
+        },
+        "model_size": 1177997,
+        "training_time": 218.933180809021,
+        "inference_time": 0.3872694969177246,
+        "timestamp": "2025-05-14 07:19:37"
+    },
+    {
+        "model_name": "ADNN_128_64_128_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9258912254988358,
+            "word_accuracy": 0.8787853985922409,
+            "diacritic_error_rate": 0.09850761918076331
+        },
+        "model_size": 1177997,
+        "training_time": 241.69155263900757,
+        "inference_time": 0.39745640754699707,
+        "timestamp": "2025-05-14 07:23:41"
+    },
+    {
+        "model_name": "ADNN_128_64_128_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.919847753434831,
+            "word_accuracy": 0.8797807241203468,
+            "diacritic_error_rate": 0.09660191633069794
+        },
+        "model_size": 1177997,
+        "training_time": 266.0490915775299,
+        "inference_time": 0.39260125160217285,
+        "timestamp": "2025-05-14 07:28:09"
+    },
+    {
+        "model_name": "ADNN_128_64_128_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9174536646436056,
+            "word_accuracy": 0.8707917463929254,
+            "diacritic_error_rate": 0.10212621194080626
+        },
+        "model_size": 1177997,
+        "training_time": 321.0703716278076,
+        "inference_time": 0.4307222366333008,
+        "timestamp": "2025-05-14 07:33:32"
+    },
+    {
+        "model_name": "ADNN_128_64_128_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8944197013361278,
+            "word_accuracy": 0.8485679941465454,
+            "diacritic_error_rate": 0.13315770987003864
+        },
+        "model_size": 1177997,
+        "training_time": 378.11667466163635,
+        "inference_time": 0.3910822868347168,
+        "timestamp": "2025-05-14 07:39:53"
+    },
+    {
+        "model_name": "ADNN_128_64_128_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8931280862920357,
+            "word_accuracy": 0.8482684037121803,
+            "diacritic_error_rate": 0.12855216760008298
+        },
+        "model_size": 1177997,
+        "training_time": 399.63162660598755,
+        "inference_time": 0.3904683589935303,
+        "timestamp": "2025-05-14 07:46:35"
+    },
+    {
+        "model_name": "ADNN_128_64_128_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9400422511720994,
+            "word_accuracy": 0.9079166666666667,
+            "diacritic_error_rate": 0.07787151200519143
+        },
+        "model_size": 3151501,
+        "training_time": 377.8086965084076,
+        "inference_time": 0.78338623046875,
+        "timestamp": "2025-05-14 07:52:55"
+    },
+    {
+        "model_name": "ADNN_128_64_128_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9310795770728992,
+            "word_accuracy": 0.8884651791751184,
+            "diacritic_error_rate": 0.09046979397449541
+        },
+        "model_size": 3151501,
+        "training_time": 423.5003447532654,
+        "inference_time": 0.7731771469116211,
+        "timestamp": "2025-05-14 08:00:01"
+    },
+    {
+        "model_name": "ADNN_128_64_128_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9381813251378469,
+            "word_accuracy": 0.8998599261428754,
+            "diacritic_error_rate": 0.07357138003669227
+        },
+        "model_size": 3151501,
+        "training_time": 589.2001829147339,
+        "inference_time": 0.785552978515625,
+        "timestamp": "2025-05-14 08:09:53"
+    },
+    {
+        "model_name": "ADNN_128_64_128_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9379470985204894,
+            "word_accuracy": 0.9014487523200659,
+            "diacritic_error_rate": 0.0789738605200125
+        },
+        "model_size": 3151501,
+        "training_time": 659.0533151626587,
+        "inference_time": 0.7712295055389404,
+        "timestamp": "2025-05-14 08:20:55"
+    },
+    {
+        "model_name": "ADNN_128_64_128_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9097527175869268,
+            "word_accuracy": 0.8647900090643569,
+            "diacritic_error_rate": 0.10911422737474477
+        },
+        "model_size": 3151501,
+        "training_time": 560.5965888500214,
+        "inference_time": 0.814802885055542,
+        "timestamp": "2025-05-14 08:30:19"
+    },
+    {
+        "model_name": "ADNN_128_64_128_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9121369720016403,
+            "word_accuracy": 0.8665514442087622,
+            "diacritic_error_rate": 0.11181655997481373
+        },
+        "model_size": 3151501,
+        "training_time": 760.0545732975006,
+        "inference_time": 0.7688775062561035,
+        "timestamp": "2025-05-14 08:43:01"
+    },
+    {
+        "model_name": "ADNN_128_64_256_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9269534448198304,
+            "word_accuracy": 0.8883760951188986,
+            "diacritic_error_rate": 0.09142073485671541
+        },
+        "model_size": 1430669,
+        "training_time": 207.61510705947876,
+        "inference_time": 0.3957650661468506,
+        "timestamp": "2025-05-14 08:46:31"
+    },
+    {
+        "model_name": "ADNN_128_64_256_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9357295156868718,
+            "word_accuracy": 0.9022654698146891,
+            "diacritic_error_rate": 0.08574996531150271
+        },
+        "model_size": 1430669,
+        "training_time": 284.9427125453949,
+        "inference_time": 0.39995622634887695,
+        "timestamp": "2025-05-14 08:51:19"
+    },
+    {
+        "model_name": "ADNN_128_64_256_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9216476403002416,
+            "word_accuracy": 0.8860362567368937,
+            "diacritic_error_rate": 0.09800505270493945
+        },
+        "model_size": 1430669,
+        "training_time": 327.64122676849365,
+        "inference_time": 0.39913129806518555,
+        "timestamp": "2025-05-14 08:56:49"
+    },
+    {
+        "model_name": "ADNN_128_64_256_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8968950311406101,
+            "word_accuracy": 0.8460803059273423,
+            "diacritic_error_rate": 0.13241681201053315
+        },
+        "model_size": 1430669,
+        "training_time": 183.2520763874054,
+        "inference_time": 0.39942383766174316,
+        "timestamp": "2025-05-14 08:59:54"
+    },
+    {
+        "model_name": "ADNN_128_64_256_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8842202862362413,
+            "word_accuracy": 0.8353559045482358,
+            "diacritic_error_rate": 0.1473117165647985
+        },
+        "model_size": 1430669,
+        "training_time": 255.55236148834229,
+        "inference_time": 0.40380859375,
+        "timestamp": "2025-05-14 09:04:12"
+    },
+    {
+        "model_name": "ADNN_128_64_256_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8747892308547499,
+            "word_accuracy": 0.8308247294439607,
+            "diacritic_error_rate": 0.15949460126349685
+        },
+        "model_size": 1430669,
+        "training_time": 221.1181709766388,
+        "inference_time": 0.40256500244140625,
+        "timestamp": "2025-05-14 09:07:55"
+    },
+    {
+        "model_name": "ADNN_128_64_256_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9358164844959422,
+            "word_accuracy": 0.900876868628176,
+            "diacritic_error_rate": 0.08366138241656913
+        },
+        "model_size": 3404173,
+        "training_time": 339.84883880615234,
+        "inference_time": 0.7908225059509277,
+        "timestamp": "2025-05-14 09:13:38"
+    },
+    {
+        "model_name": "ADNN_128_64_256_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9418171610367736,
+            "word_accuracy": 0.9097831399686157,
+            "diacritic_error_rate": 0.07626327562217095
+        },
+        "model_size": 3404173,
+        "training_time": 472.43732833862305,
+        "inference_time": 0.7499566078186035,
+        "timestamp": "2025-05-14 09:21:33"
+    },
+    {
+        "model_name": "ADNN_128_64_256_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9320527306967985,
+            "word_accuracy": 0.892972631911034,
+            "diacritic_error_rate": 0.08266609729191132
+        },
+        "model_size": 3404173,
+        "training_time": 528.3293035030365,
+        "inference_time": 0.7783231735229492,
+        "timestamp": "2025-05-14 09:30:24"
+    },
+    {
+        "model_name": "ADNN_128_64_256_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9110650043186,
+            "word_accuracy": 0.8699364781839009,
+            "diacritic_error_rate": 0.11110131070615838
+        },
+        "model_size": 3404173,
+        "training_time": 386.6320757865906,
+        "inference_time": 0.7705132961273193,
+        "timestamp": "2025-05-14 09:36:54"
+    },
+    {
+        "model_name": "ADNN_128_64_256_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8996757061615829,
+            "word_accuracy": 0.8452492426328835,
+            "diacritic_error_rate": 0.12465020721901456
+        },
+        "model_size": 3404173,
+        "training_time": 537.3026795387268,
+        "inference_time": 0.8053021430969238,
+        "timestamp": "2025-05-14 09:45:54"
+    },
+    {
+        "model_name": "ADNN_128_64_256_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 128,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8882497551232066,
+            "word_accuracy": 0.8365454989021712,
+            "diacritic_error_rate": 0.14274166022957946
+        },
+        "model_size": 3404173,
+        "training_time": 412.2280225753784,
+        "inference_time": 0.7768676280975342,
+        "timestamp": "2025-05-14 09:52:49"
+    },
+    {
+        "model_name": "ADNN_256_128_128_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9323545118398194,
+            "word_accuracy": 0.861214566521829,
+            "diacritic_error_rate": 0.08559909157023106
+        },
+        "model_size": 1177997,
+        "training_time": 509.6195924282074,
+        "inference_time": 0.6369853019714355,
+        "timestamp": "2025-05-14 10:01:21"
+    },
+    {
+        "model_name": "ADNN_256_128_128_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9191366298455627,
+            "word_accuracy": 0.8293870610362507,
+            "diacritic_error_rate": 0.10792828039921751
+        },
+        "model_size": 1177997,
+        "training_time": 504.0598244667053,
+        "inference_time": 0.6473336219787598,
+        "timestamp": "2025-05-14 10:09:47"
+    },
+    {
+        "model_name": "ADNN_256_128_128_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9131701711424546,
+            "word_accuracy": 0.823227538291489,
+            "diacritic_error_rate": 0.10849578006944355
+        },
+        "model_size": 1177997,
+        "training_time": 551.6043033599854,
+        "inference_time": 0.6359145641326904,
+        "timestamp": "2025-05-14 10:19:02"
+    },
+    {
+        "model_name": "ADNN_256_128_128_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9013452914798207,
+            "word_accuracy": 0.8065570314147165,
+            "diacritic_error_rate": 0.12531611095981013
+        },
+        "model_size": 1177997,
+        "training_time": 543.7990529537201,
+        "inference_time": 0.6326627731323242,
+        "timestamp": "2025-05-14 10:28:08"
+    },
+    {
+        "model_name": "ADNN_256_128_128_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8862831799297327,
+            "word_accuracy": 0.787221570926143,
+            "diacritic_error_rate": 0.14711392182254798
+        },
+        "model_size": 1177997,
+        "training_time": 471.6861436367035,
+        "inference_time": 0.6377096176147461,
+        "timestamp": "2025-05-14 10:36:02"
+    },
+    {
+        "model_name": "ADNN_256_128_128_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.871852557476506,
+            "word_accuracy": 0.7613821243188803,
+            "diacritic_error_rate": 0.16774177033737778
+        },
+        "model_size": 1177997,
+        "training_time": 515.5631930828094,
+        "inference_time": 0.6422255039215088,
+        "timestamp": "2025-05-14 10:44:40"
+    },
+    {
+        "model_name": "ADNN_256_128_128_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9430611813940988,
+            "word_accuracy": 0.8810043138965634,
+            "diacritic_error_rate": 0.07914316280879206
+        },
+        "model_size": 3151501,
+        "training_time": 696.5913970470428,
+        "inference_time": 1.074023962020874,
+        "timestamp": "2025-05-14 10:56:20"
+    },
+    {
+        "model_name": "ADNN_256_128_128_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.934340083335545,
+            "word_accuracy": 0.861546672088236,
+            "diacritic_error_rate": 0.09017225180081428
+        },
+        "model_size": 3151501,
+        "training_time": 931.998193025589,
+        "inference_time": 1.0608248710632324,
+        "timestamp": "2025-05-14 11:11:55"
+    },
+    {
+        "model_name": "ADNN_256_128_128_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.939489764214451,
+            "word_accuracy": 0.8676143453963431,
+            "diacritic_error_rate": 0.07659835851325213
+        },
+        "model_size": 3151501,
+        "training_time": 995.6806120872498,
+        "inference_time": 1.166459083557129,
+        "timestamp": "2025-05-14 11:28:34"
+    },
+    {
+        "model_name": "ADNN_256_128_128_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.924871891759309,
+            "word_accuracy": 0.8381131484093403,
+            "diacritic_error_rate": 0.09530006506832174
+        },
+        "model_size": 3151501,
+        "training_time": 1070.5996224880219,
+        "inference_time": 1.06899094581604,
+        "timestamp": "2025-05-14 11:46:27"
+    },
+    {
+        "model_name": "ADNN_256_128_128_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9075339888197823,
+            "word_accuracy": 0.8137137695597886,
+            "diacritic_error_rate": 0.11330517973983995
+        },
+        "model_size": 3151501,
+        "training_time": 1187.4889569282532,
+        "inference_time": 1.0596427917480469,
+        "timestamp": "2025-05-14 12:06:18"
+    },
+    {
+        "model_name": "ADNN_256_128_128_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9023385151433931,
+            "word_accuracy": 0.8061138808711624,
+            "diacritic_error_rate": 0.12757926203655617
+        },
+        "model_size": 3151501,
+        "training_time": 1230.1910207271576,
+        "inference_time": 1.0604987144470215,
+        "timestamp": "2025-05-14 12:26:51"
+    },
+    {
+        "model_name": "ADNN_256_128_256_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9322519994005205,
+            "word_accuracy": 0.8569026713992154,
+            "diacritic_error_rate": 0.08880472461163179
+        },
+        "model_size": 1430669,
+        "training_time": 577.528035402298,
+        "inference_time": 0.6798069477081299,
+        "timestamp": "2025-05-14 12:36:31"
+    },
+    {
+        "model_name": "ADNN_256_128_256_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9310559133469468,
+            "word_accuracy": 0.8596239226952207,
+            "diacritic_error_rate": 0.08829948391403702
+        },
+        "model_size": 1430669,
+        "training_time": 704.5789449214935,
+        "inference_time": 0.6810958385467529,
+        "timestamp": "2025-05-14 12:48:19"
+    },
+    {
+        "model_name": "ADNN_256_128_256_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9187538300353846,
+            "word_accuracy": 0.8363113832312883,
+            "diacritic_error_rate": 0.10317263908137003
+        },
+        "model_size": 1430669,
+        "training_time": 615.9224247932434,
+        "inference_time": 0.6857988834381104,
+        "timestamp": "2025-05-14 12:58:37"
+    },
+    {
+        "model_name": "ADNN_256_128_256_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9066600675970486,
+            "word_accuracy": 0.8143228050717148,
+            "diacritic_error_rate": 0.12226170056358736
+        },
+        "model_size": 1430669,
+        "training_time": 567.3952460289001,
+        "inference_time": 0.6967449188232422,
+        "timestamp": "2025-05-14 13:08:07"
+    },
+    {
+        "model_name": "ADNN_256_128_256_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.878582943957155,
+            "word_accuracy": 0.7690780294086079,
+            "diacritic_error_rate": 0.16219173799194903
+        },
+        "model_size": 1430669,
+        "training_time": 518.7711100578308,
+        "inference_time": 0.668602705001831,
+        "timestamp": "2025-05-14 13:16:49"
+    },
+    {
+        "model_name": "ADNN_256_128_256_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8766236789422226,
+            "word_accuracy": 0.7562334288545489,
+            "diacritic_error_rate": 0.159355405066466
+        },
+        "model_size": 1430669,
+        "training_time": 528.6340403556824,
+        "inference_time": 0.6618807315826416,
+        "timestamp": "2025-05-14 13:25:40"
+    },
+    {
+        "model_name": "ADNN_256_128_256_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9407100319152436,
+            "word_accuracy": 0.8721137685843569,
+            "diacritic_error_rate": 0.07714796166964431
+        },
+        "model_size": 3404173,
+        "training_time": 702.2092587947845,
+        "inference_time": 1.1071813106536865,
+        "timestamp": "2025-05-14 13:37:25"
+    },
+    {
+        "model_name": "ADNN_256_128_256_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9256642059137026,
+            "word_accuracy": 0.8415430422064354,
+            "diacritic_error_rate": 0.09376124254115545
+        },
+        "model_size": 3404173,
+        "training_time": 770.9524536132812,
+        "inference_time": 1.1075761318206787,
+        "timestamp": "2025-05-14 13:50:19"
+    },
+    {
+        "model_name": "ADNN_256_128_256_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9202809977299896,
+            "word_accuracy": 0.8379732451836166,
+            "diacritic_error_rate": 0.1027548174280729
+        },
+        "model_size": 3404173,
+        "training_time": 611.1779627799988,
+        "inference_time": 1.256641149520874,
+        "timestamp": "2025-05-14 14:00:34"
+    },
+    {
+        "model_name": "ADNN_256_128_256_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9157871963545645,
+            "word_accuracy": 0.824516336196516,
+            "diacritic_error_rate": 0.1073156991780401
+        },
+        "model_size": 3404173,
+        "training_time": 768.500438451767,
+        "inference_time": 1.1025404930114746,
+        "timestamp": "2025-05-14 14:13:25"
+    },
+    {
+        "model_name": "ADNN_256_128_256_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8841476452664778,
+            "word_accuracy": 0.7835143314936799,
+            "diacritic_error_rate": 0.14815905743740795
+        },
+        "model_size": 3404173,
+        "training_time": 539.6923971176147,
+        "inference_time": 1.1214585304260254,
+        "timestamp": "2025-05-14 14:22:28"
+    },
+    {
+        "model_name": "ADNN_256_128_256_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8934368815836898,
+            "word_accuracy": 0.7931526390870185,
+            "diacritic_error_rate": 0.13485100297607544
+        },
+        "model_size": 3404173,
+        "training_time": 975.9257278442383,
+        "inference_time": 1.0938506126403809,
+        "timestamp": "2025-05-14 14:38:47"
+    },
+    {
+        "model_name": "ADNN_256_64_128_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.937366110391156,
+            "word_accuracy": 0.8684498100640058,
+            "diacritic_error_rate": 0.08205615421156587
+        },
+        "model_size": 1177997,
+        "training_time": 490.9317157268524,
+        "inference_time": 0.6910030841827393,
+        "timestamp": "2025-05-14 14:47:01"
+    },
+    {
+        "model_name": "ADNN_256_64_128_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9333789176786172,
+            "word_accuracy": 0.860762095634523,
+            "diacritic_error_rate": 0.08580214885027651
+        },
+        "model_size": 1177997,
+        "training_time": 569.7883353233337,
+        "inference_time": 0.6778359413146973,
+        "timestamp": "2025-05-14 14:56:33"
+    },
+    {
+        "model_name": "ADNN_256_64_128_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9182259960119904,
+            "word_accuracy": 0.8321705426356589,
+            "diacritic_error_rate": 0.10295903928271785
+        },
+        "model_size": 1177997,
+        "training_time": 407.88447976112366,
+        "inference_time": 0.694119930267334,
+        "timestamp": "2025-05-14 15:03:24"
+    },
+    {
+        "model_name": "ADNN_256_64_128_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9108977098815646,
+            "word_accuracy": 0.8203823746615245,
+            "diacritic_error_rate": 0.11259902418550968
+        },
+        "model_size": 1177997,
+        "training_time": 502.68482732772827,
+        "inference_time": 0.6751284599304199,
+        "timestamp": "2025-05-14 15:11:49"
+    },
+    {
+        "model_name": "ADNN_256_64_128_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8958757549611734,
+            "word_accuracy": 0.793041975041867,
+            "diacritic_error_rate": 0.13789159556706587
+        },
+        "model_size": 1177997,
+        "training_time": 586.0455431938171,
+        "inference_time": 0.6901717185974121,
+        "timestamp": "2025-05-14 15:21:38"
+    },
+    {
+        "model_name": "ADNN_256_64_128_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8921508923851142,
+            "word_accuracy": 0.7876750850317362,
+            "diacritic_error_rate": 0.14023107912939925
+        },
+        "model_size": 1177997,
+        "training_time": 528.7136285305023,
+        "inference_time": 0.7115659713745117,
+        "timestamp": "2025-05-14 15:30:29"
+    },
+    {
+        "model_name": "ADNN_256_64_128_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9483863561159095,
+            "word_accuracy": 0.8913082691267039,
+            "diacritic_error_rate": 0.06772708569077256
+        },
+        "model_size": 3151501,
+        "training_time": 696.2471792697906,
+        "inference_time": 1.4160046577453613,
+        "timestamp": "2025-05-14 15:42:09"
+    },
+    {
+        "model_name": "ADNN_256_64_128_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9415892078086571,
+            "word_accuracy": 0.8797734790017039,
+            "diacritic_error_rate": 0.07550614005974113
+        },
+        "model_size": 3151501,
+        "training_time": 961.744907617569,
+        "inference_time": 1.4044771194458008,
+        "timestamp": "2025-05-14 15:58:14"
+    },
+    {
+        "model_name": "ADNN_256_64_128_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9417977604113806,
+            "word_accuracy": 0.8710489283394675,
+            "diacritic_error_rate": 0.07965833354613008
+        },
+        "model_size": 3151501,
+        "training_time": 1051.7273228168488,
+        "inference_time": 1.4499516487121582,
+        "timestamp": "2025-05-14 16:15:49"
+    },
+    {
+        "model_name": "ADNN_256_64_128_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9326978802320903,
+            "word_accuracy": 0.8547663898543418,
+            "diacritic_error_rate": 0.08584428067926947
+        },
+        "model_size": 3151501,
+        "training_time": 1112.9652273654938,
+        "inference_time": 1.386521577835083,
+        "timestamp": "2025-05-14 16:34:26"
+    },
+    {
+        "model_name": "ADNN_256_64_128_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9051875219067648,
+            "word_accuracy": 0.8055871365924964,
+            "diacritic_error_rate": 0.11903571199589665
+        },
+        "model_size": 3151501,
+        "training_time": 991.4312169551849,
+        "inference_time": 1.4437756538391113,
+        "timestamp": "2025-05-14 16:51:01"
+    },
+    {
+        "model_name": "ADNN_256_64_128_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9042175798186834,
+            "word_accuracy": 0.798535593220339,
+            "diacritic_error_rate": 0.12256986634264884
+        },
+        "model_size": 3151501,
+        "training_time": 908.097503900528,
+        "inference_time": 1.406770944595337,
+        "timestamp": "2025-05-14 17:06:12"
+    },
+    {
+        "model_name": "ADNN_256_64_256_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9377395417108375,
+            "word_accuracy": 0.8666792178801,
+            "diacritic_error_rate": 0.08362996183451342
+        },
+        "model_size": 1430669,
+        "training_time": 516.6889736652374,
+        "inference_time": 0.7381918430328369,
+        "timestamp": "2025-05-14 17:14:52"
+    },
+    {
+        "model_name": "ADNN_256_64_256_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9338446531888454,
+            "word_accuracy": 0.8570345782912103,
+            "diacritic_error_rate": 0.08621524503682561
+        },
+        "model_size": 1430669,
+        "training_time": 558.3559334278107,
+        "inference_time": 0.7186570167541504,
+        "timestamp": "2025-05-14 17:24:13"
+    },
+    {
+        "model_name": "ADNN_256_64_256_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9136696468303734,
+            "word_accuracy": 0.8258886442277446,
+            "diacritic_error_rate": 0.1086898412738821
+        },
+        "model_size": 1430669,
+        "training_time": 460.42360162734985,
+        "inference_time": 0.7444572448730469,
+        "timestamp": "2025-05-14 17:31:56"
+    },
+    {
+        "model_name": "ADNN_256_64_256_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9215059981709613,
+            "word_accuracy": 0.8318362061989156,
+            "diacritic_error_rate": 0.0979136304364501
+        },
+        "model_size": 1430669,
+        "training_time": 716.276823759079,
+        "inference_time": 0.722125768661499,
+        "timestamp": "2025-05-14 17:43:55"
+    },
+    {
+        "model_name": "ADNN_256_64_256_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8856735480761507,
+            "word_accuracy": 0.7816059875681847,
+            "diacritic_error_rate": 0.15165876777251186
+        },
+        "model_size": 1430669,
+        "training_time": 532.5338191986084,
+        "inference_time": 0.7340888977050781,
+        "timestamp": "2025-05-14 17:52:50"
+    },
+    {
+        "model_name": "ADNN_256_64_256_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8761540719393746,
+            "word_accuracy": 0.7625573141983784,
+            "diacritic_error_rate": 0.1578345551334663
+        },
+        "model_size": 1430669,
+        "training_time": 443.3548445701599,
+        "inference_time": 0.728008508682251,
+        "timestamp": "2025-05-14 18:00:16"
+    },
+    {
+        "model_name": "ADNN_256_64_256_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9424058091455897,
+            "word_accuracy": 0.8739695964029547,
+            "diacritic_error_rate": 0.07780864396924866
+        },
+        "model_size": 3404173,
+        "training_time": 672.7380554676056,
+        "inference_time": 1.4844298362731934,
+        "timestamp": "2025-05-14 18:11:32"
+    },
+    {
+        "model_name": "ADNN_256_64_256_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9433294682789465,
+            "word_accuracy": 0.8763388252717319,
+            "diacritic_error_rate": 0.07536665368036094
+        },
+        "model_size": 3404173,
+        "training_time": 955.0764541625977,
+        "inference_time": 1.4150745868682861,
+        "timestamp": "2025-05-14 18:27:31"
+    },
+    {
+        "model_name": "ADNN_256_64_256_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9327839715624495,
+            "word_accuracy": 0.8555805557009052,
+            "diacritic_error_rate": 0.08173168774597837
+        },
+        "model_size": 3404173,
+        "training_time": 947.6509788036346,
+        "inference_time": 1.4456872940063477,
+        "timestamp": "2025-05-14 18:43:22"
+    },
+    {
+        "model_name": "ADNN_256_64_256_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9244453970635516,
+            "word_accuracy": 0.8462616584271954,
+            "diacritic_error_rate": 0.10132822995614814
+        },
+        "model_size": 3404173,
+        "training_time": 830.4196290969849,
+        "inference_time": 1.4566047191619873,
+        "timestamp": "2025-05-14 18:57:16"
+    },
+    {
+        "model_name": "ADNN_256_64_256_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9060052560699763,
+            "word_accuracy": 0.8153888117437016,
+            "diacritic_error_rate": 0.11693568351735406
+        },
+        "model_size": 3404173,
+        "training_time": 1167.784087896347,
+        "inference_time": 1.4521405696868896,
+        "timestamp": "2025-05-14 19:16:47"
+    },
+    {
+        "model_name": "ADNN_256_64_256_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 256,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9177611111482802,
+            "word_accuracy": 0.828361870819452,
+            "diacritic_error_rate": 0.10063444838590736
+        },
+        "model_size": 3404173,
+        "training_time": 1611.207748413086,
+        "inference_time": 1.4576516151428223,
+        "timestamp": "2025-05-14 19:43:42"
+    },
+    {
+        "model_name": "ADNN_512_128_128_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9287115416135735,
+            "word_accuracy": 0.81306393151847,
+            "diacritic_error_rate": 0.10077974089543786
+        },
+        "model_size": 1177997,
+        "training_time": 786.7202885150909,
+        "inference_time": 1.1514103412628174,
+        "timestamp": "2025-05-14 19:56:52"
+    },
+    {
+        "model_name": "ADNN_512_128_128_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9328554535083012,
+            "word_accuracy": 0.8264111289031225,
+            "diacritic_error_rate": 0.09011938075010568
+        },
+        "model_size": 1177997,
+        "training_time": 1325.3076620101929,
+        "inference_time": 1.13093900680542,
+        "timestamp": "2025-05-14 20:19:00"
+    },
+    {
+        "model_name": "ADNN_512_128_128_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8927600345274062,
+            "word_accuracy": 0.7461473153412745,
+            "diacritic_error_rate": 0.14156704849298252
+        },
+        "model_size": 1177997,
+        "training_time": 580.9090931415558,
+        "inference_time": 1.114917278289795,
+        "timestamp": "2025-05-14 20:28:44"
+    },
+    {
+        "model_name": "ADNN_512_128_128_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.895374267784726,
+            "word_accuracy": 0.7431389365351629,
+            "diacritic_error_rate": 0.13221295099306615
+        },
+        "model_size": 1177997,
+        "training_time": 981.9929230213165,
+        "inference_time": 1.1103227138519287,
+        "timestamp": "2025-05-14 20:45:09"
+    },
+    {
+        "model_name": "ADNN_512_128_128_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8798288489136248,
+            "word_accuracy": 0.7200576470885692,
+            "diacritic_error_rate": 0.16145233331312273
+        },
+        "model_size": 1177997,
+        "training_time": 804.5114767551422,
+        "inference_time": 1.1587839126586914,
+        "timestamp": "2025-05-14 20:58:37"
+    },
+    {
+        "model_name": "ADNN_512_128_128_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8614611597902211,
+            "word_accuracy": 0.6818516183270281,
+            "diacritic_error_rate": 0.18537479784505403
+        },
+        "model_size": 1177997,
+        "training_time": 735.8012399673462,
+        "inference_time": 1.1548922061920166,
+        "timestamp": "2025-05-14 21:10:56"
+    },
+    {
+        "model_name": "ADNN_512_128_128_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9434293708085942,
+            "word_accuracy": 0.8477280429625381,
+            "diacritic_error_rate": 0.07705685618729097
+        },
+        "model_size": 3151501,
+        "training_time": 1479.3026266098022,
+        "inference_time": 2.0103113651275635,
+        "timestamp": "2025-05-14 21:35:40"
+    },
+    {
+        "model_name": "ADNN_512_128_128_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9389057605267497,
+            "word_accuracy": 0.8405194538548404,
+            "diacritic_error_rate": 0.077814738474725
+        },
+        "model_size": 3151501,
+        "training_time": 2500.2803564071655,
+        "inference_time": 2.0334436893463135,
+        "timestamp": "2025-05-14 22:17:24"
+    },
+    {
+        "model_name": "ADNN_512_128_128_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.936566416175889,
+            "word_accuracy": 0.8334341866400063,
+            "diacritic_error_rate": 0.0851386909900259
+        },
+        "model_size": 3151501,
+        "training_time": 1977.0602180957794,
+        "inference_time": 2.006209135055542,
+        "timestamp": "2025-05-14 22:50:25"
+    },
+    {
+        "model_name": "ADNN_512_128_128_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9211339656826175,
+            "word_accuracy": 0.7962171230652668,
+            "diacritic_error_rate": 0.10091672949377739
+        },
+        "model_size": 3151501,
+        "training_time": 2233.5389709472656,
+        "inference_time": 1.9780442714691162,
+        "timestamp": "2025-05-14 23:27:43"
+    },
+    {
+        "model_name": "ADNN_512_128_128_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9055123659586464,
+            "word_accuracy": 0.7626160247519471,
+            "diacritic_error_rate": 0.12449230384703505
+        },
+        "model_size": 3151501,
+        "training_time": 1842.101399898529,
+        "inference_time": 1.9903638362884521,
+        "timestamp": "2025-05-14 23:58:29"
+    },
+    {
+        "model_name": "ADNN_512_128_128_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9096266352373994,
+            "word_accuracy": 0.7763264891238056,
+            "diacritic_error_rate": 0.11553699430228521
+        },
+        "model_size": 3151501,
+        "training_time": 2811.856341123581,
+        "inference_time": 2.0320210456848145,
+        "timestamp": "2025-05-15 00:45:25"
+    },
+    {
+        "model_name": "ADNN_512_128_256_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9416244607015569,
+            "word_accuracy": 0.8494907875301252,
+            "diacritic_error_rate": 0.07855493405860317
+        },
+        "model_size": 1430669,
+        "training_time": 1394.2657270431519,
+        "inference_time": 1.3495116233825684,
+        "timestamp": "2025-05-15 01:08:42"
+    },
+    {
+        "model_name": "ADNN_512_128_256_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9220600515748176,
+            "word_accuracy": 0.8062160410747221,
+            "diacritic_error_rate": 0.10540342861723126
+        },
+        "model_size": 1430669,
+        "training_time": 1129.3112750053406,
+        "inference_time": 1.1878643035888672,
+        "timestamp": "2025-05-15 01:27:35"
+    },
+    {
+        "model_name": "ADNN_512_128_256_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9180797157084256,
+            "word_accuracy": 0.7900389568228546,
+            "diacritic_error_rate": 0.10282862244311952
+        },
+        "model_size": 1430669,
+        "training_time": 1242.4236872196198,
+        "inference_time": 1.1899287700653076,
+        "timestamp": "2025-05-15 01:48:20"
+    },
+    {
+        "model_name": "ADNN_512_128_256_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9024530673906842,
+            "word_accuracy": 0.763292874917475,
+            "diacritic_error_rate": 0.12648905344494527
+        },
+        "model_size": 1430669,
+        "training_time": 1132.191528558731,
+        "inference_time": 1.1740028858184814,
+        "timestamp": "2025-05-15 02:07:16"
+    },
+    {
+        "model_name": "ADNN_512_128_256_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8862249980412568,
+            "word_accuracy": 0.7396480738467993,
+            "diacritic_error_rate": 0.15526841958162235
+        },
+        "model_size": 1430669,
+        "training_time": 1202.9345200061798,
+        "inference_time": 1.3272337913513184,
+        "timestamp": "2025-05-15 02:27:22"
+    },
+    {
+        "model_name": "ADNN_512_128_256_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8679227429589224,
+            "word_accuracy": 0.6885744005255666,
+            "diacritic_error_rate": 0.18515245249668583
+        },
+        "model_size": 1430669,
+        "training_time": 870.6239626407623,
+        "inference_time": 1.1627566814422607,
+        "timestamp": "2025-05-15 02:41:56"
+    },
+    {
+        "model_name": "ADNN_512_128_256_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9534777712232531,
+            "word_accuracy": 0.881328669543238,
+            "diacritic_error_rate": 0.06116451609565298
+        },
+        "model_size": 3404173,
+        "training_time": 2163.412915468216,
+        "inference_time": 2.0329179763793945,
+        "timestamp": "2025-05-15 03:18:04"
+    },
+    {
+        "model_name": "ADNN_512_128_256_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.948247267855503,
+            "word_accuracy": 0.8653931585961795,
+            "diacritic_error_rate": 0.06919111405560961
+        },
+        "model_size": 3404173,
+        "training_time": 2528.2925415039062,
+        "inference_time": 2.0378684997558594,
+        "timestamp": "2025-05-15 04:00:16"
+    },
+    {
+        "model_name": "ADNN_512_128_256_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9261460234273861,
+            "word_accuracy": 0.8099221446748469,
+            "diacritic_error_rate": 0.09752031465250464
+        },
+        "model_size": 3404173,
+        "training_time": 1528.5624129772186,
+        "inference_time": 2.083930015563965,
+        "timestamp": "2025-05-15 04:25:49"
+    },
+    {
+        "model_name": "ADNN_512_128_256_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9230447533095145,
+            "word_accuracy": 0.8037075796083122,
+            "diacritic_error_rate": 0.09804734136498633
+        },
+        "model_size": 3404173,
+        "training_time": 1870.725962638855,
+        "inference_time": 2.0403952598571777,
+        "timestamp": "2025-05-15 04:57:04"
+    },
+    {
+        "model_name": "ADNN_512_128_256_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9088025919503514,
+            "word_accuracy": 0.7672810401485927,
+            "diacritic_error_rate": 0.11289250977530416
+        },
+        "model_size": 3404173,
+        "training_time": 2700.938093662262,
+        "inference_time": 2.03023624420166,
+        "timestamp": "2025-05-15 05:42:09"
+    },
+    {
+        "model_name": "ADNN_512_128_256_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 128,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8925636366667222,
+            "word_accuracy": 0.7477769224643644,
+            "diacritic_error_rate": 0.13953861627683023
+        },
+        "model_size": 3404173,
+        "training_time": 1861.0724687576294,
+        "inference_time": 2.0949623584747314,
+        "timestamp": "2025-05-15 06:13:15"
+    },
+    {
+        "model_name": "ADNN_512_64_128_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9432916237609345,
+            "word_accuracy": 0.8501148252105128,
+            "diacritic_error_rate": 0.07642777155655095
+        },
+        "model_size": 1177997,
+        "training_time": 1125.9489214420319,
+        "inference_time": 1.2758617401123047,
+        "timestamp": "2025-05-15 06:32:04"
+    },
+    {
+        "model_name": "ADNN_512_64_128_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9309878665487258,
+            "word_accuracy": 0.8192102746276814,
+            "diacritic_error_rate": 0.09277578739104861
+        },
+        "model_size": 1177997,
+        "training_time": 976.0506074428558,
+        "inference_time": 1.2204899787902832,
+        "timestamp": "2025-05-15 06:48:23"
+    },
+    {
+        "model_name": "ADNN_512_64_128_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9260197758008097,
+            "word_accuracy": 0.8089959496908975,
+            "diacritic_error_rate": 0.09478312336179927
+        },
+        "model_size": 1177997,
+        "training_time": 1118.4348022937775,
+        "inference_time": 1.2058944702148438,
+        "timestamp": "2025-05-15 07:07:05"
+    },
+    {
+        "model_name": "ADNN_512_64_128_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9152272038534539,
+            "word_accuracy": 0.7892156862745098,
+            "diacritic_error_rate": 0.10418241751595246
+        },
+        "model_size": 1177997,
+        "training_time": 1230.7158267498016,
+        "inference_time": 1.2514328956604004,
+        "timestamp": "2025-05-15 07:27:39"
+    },
+    {
+        "model_name": "ADNN_512_64_128_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9028956818218198,
+            "word_accuracy": 0.7604297224709042,
+            "diacritic_error_rate": 0.1337064167621542
+        },
+        "model_size": 1177997,
+        "training_time": 1135.8200783729553,
+        "inference_time": 1.2098360061645508,
+        "timestamp": "2025-05-15 07:46:39"
+    },
+    {
+        "model_name": "ADNN_512_64_128_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.891743374169681,
+            "word_accuracy": 0.7393794749403342,
+            "diacritic_error_rate": 0.14530472544539078
+        },
+        "model_size": 1177997,
+        "training_time": 1199.1075110435486,
+        "inference_time": 1.1518127918243408,
+        "timestamp": "2025-05-15 08:06:41"
+    },
+    {
+        "model_name": "ADNN_512_64_128_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9525579637096774,
+            "word_accuracy": 0.8749621020717534,
+            "diacritic_error_rate": 0.06495012758060775
+        },
+        "model_size": 3151501,
+        "training_time": 1682.6008143424988,
+        "inference_time": 2.6593260765075684,
+        "timestamp": "2025-05-15 08:34:48"
+    },
+    {
+        "model_name": "ADNN_512_64_128_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9385121195791215,
+            "word_accuracy": 0.8394664824507798,
+            "diacritic_error_rate": 0.08386185243328101
+        },
+        "model_size": 3151501,
+        "training_time": 1749.3103399276733,
+        "inference_time": 2.6435790061950684,
+        "timestamp": "2025-05-15 09:04:02"
+    },
+    {
+        "model_name": "ADNN_512_64_128_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9428151038222458,
+            "word_accuracy": 0.8467038621959807,
+            "diacritic_error_rate": 0.06982240960776798
+        },
+        "model_size": 3151501,
+        "training_time": 2233.257337808609,
+        "inference_time": 2.6714231967926025,
+        "timestamp": "2025-05-15 09:41:20"
+    },
+    {
+        "model_name": "ADNN_512_64_128_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9339185618414797,
+            "word_accuracy": 0.8228260576845393,
+            "diacritic_error_rate": 0.08234502930219152
+        },
+        "model_size": 3151501,
+        "training_time": 2058.013142824173,
+        "inference_time": 2.663831949234009,
+        "timestamp": "2025-05-15 10:15:43"
+    },
+    {
+        "model_name": "ADNN_512_64_128_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.912616140269514,
+            "word_accuracy": 0.7786657042689215,
+            "diacritic_error_rate": 0.11206931454714766
+        },
+        "model_size": 3151501,
+        "training_time": 1713.9268176555634,
+        "inference_time": 2.636455774307251,
+        "timestamp": "2025-05-15 10:44:21"
+    },
+    {
+        "model_name": "ADNN_512_64_128_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 128,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9240770762384533,
+            "word_accuracy": 0.8001711824965897,
+            "diacritic_error_rate": 0.09441571331557227
+        },
+        "model_size": 3151501,
+        "training_time": 3586.036070585251,
+        "inference_time": 2.7201852798461914,
+        "timestamp": "2025-05-15 11:44:12"
+    },
+    {
+        "model_name": "ADNN_512_64_256_256_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.938902495155727,
+            "word_accuracy": 0.8413114211658302,
+            "diacritic_error_rate": 0.07780683422143927
+        },
+        "model_size": 1430669,
+        "training_time": 964.759119272232,
+        "inference_time": 1.2263908386230469,
+        "timestamp": "2025-05-15 12:00:20"
+    },
+    {
+        "model_name": "ADNN_512_64_256_256_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9324224615209977,
+            "word_accuracy": 0.8305097303170996,
+            "diacritic_error_rate": 0.09213443116142823
+        },
+        "model_size": 1430669,
+        "training_time": 1044.1583669185638,
+        "inference_time": 1.2075867652893066,
+        "timestamp": "2025-05-15 12:17:47"
+    },
+    {
+        "model_name": "ADNN_512_64_256_256_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9252621007380799,
+            "word_accuracy": 0.8100353794902254,
+            "diacritic_error_rate": 0.09682371357875069
+        },
+        "model_size": 1430669,
+        "training_time": 1414.888475894928,
+        "inference_time": 1.2368297576904297,
+        "timestamp": "2025-05-15 12:41:26"
+    },
+    {
+        "model_name": "ADNN_512_64_256_256_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9255662210832898,
+            "word_accuracy": 0.810468942821884,
+            "diacritic_error_rate": 0.09901625099564502
+        },
+        "model_size": 1430669,
+        "training_time": 1307.988638162613,
+        "inference_time": 1.2331857681274414,
+        "timestamp": "2025-05-15 13:03:17"
+    },
+    {
+        "model_name": "ADNN_512_64_256_256_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8964087300536493,
+            "word_accuracy": 0.7536918219777982,
+            "diacritic_error_rate": 0.13733647997070372
+        },
+        "model_size": 1430669,
+        "training_time": 1176.1830098628998,
+        "inference_time": 1.2193245887756348,
+        "timestamp": "2025-05-15 13:22:56"
+    },
+    {
+        "model_name": "ADNN_512_64_256_256_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 256,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.8851531814611154,
+            "word_accuracy": 0.7262584532800042,
+            "diacritic_error_rate": 0.15760627441229189
+        },
+        "model_size": 1430669,
+        "training_time": 1110.6975319385529,
+        "inference_time": 1.2092342376708984,
+        "timestamp": "2025-05-15 13:41:30"
+    },
+    {
+        "model_name": "ADNN_512_64_256_512_0.3_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9514291130442109,
+            "word_accuracy": 0.8736244409828652,
+            "diacritic_error_rate": 0.0703801659566736
+        },
+        "model_size": 3404173,
+        "training_time": 1744.8488759994507,
+        "inference_time": 2.6975369453430176,
+        "timestamp": "2025-05-15 14:10:40"
+    },
+    {
+        "model_name": "ADNN_512_64_256_512_0.3_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.3,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9471451501949094,
+            "word_accuracy": 0.8635776076364721,
+            "diacritic_error_rate": 0.06927286004381446
+        },
+        "model_size": 3404173,
+        "training_time": 1980.812166929245,
+        "inference_time": 2.752851724624634,
+        "timestamp": "2025-05-15 14:43:45"
+    },
+    {
+        "model_name": "ADNN_512_64_256_512_0.5_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9490619191913813,
+            "word_accuracy": 0.8623171460493153,
+            "diacritic_error_rate": 0.06685949493825787
+        },
+        "model_size": 3404173,
+        "training_time": 2817.180507659912,
+        "inference_time": 2.764493703842163,
+        "timestamp": "2025-05-15 15:30:47"
+    },
+    {
+        "model_name": "ADNN_512_64_256_512_0.5_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.5,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9486493117077824,
+            "word_accuracy": 0.8635248819852844,
+            "diacritic_error_rate": 0.0666541180407412
+        },
+        "model_size": 3404173,
+        "training_time": 2991.9462871551514,
+        "inference_time": 2.7788267135620117,
+        "timestamp": "2025-05-15 16:20:44"
+    },
+    {
+        "model_name": "ADNN_512_64_256_512_0.7_0.001_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.001,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.916677811211412,
+            "word_accuracy": 0.793000861191576,
+            "diacritic_error_rate": 0.11217501517749683
+        },
+        "model_size": 3404173,
+        "training_time": 3353.574487686157,
+        "inference_time": 2.752577781677246,
+        "timestamp": "2025-05-15 17:16:42"
+    },
+    {
+        "model_name": "ADNN_512_64_256_512_0.7_0.0005_500",
+        "hyperparameters": {
+            "max_sequence_length": 512,
+            "batch_size": 64,
+            "embedding_dim": 256,
+            "hidden_dim": 512,
+            "dropout_rate": 0.7,
+            "learning_rate": 0.0005,
+            "epochs": 500,
+            "patience": 5
+        },
+        "metrics": {
+            "character_accuracy": 0.9210336290488962,
+            "word_accuracy": 0.7939982966785232,
+            "diacritic_error_rate": 0.10180078673229358
+        },
+        "model_size": 3404173,
+        "training_time": 3034.464101076126,
+        "inference_time": 2.7850301265716553,
+        "timestamp": "2025-05-15 18:07:22"
+    }
+]

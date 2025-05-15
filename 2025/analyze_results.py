@@ -23,6 +23,7 @@ def load_results(results_dir):
         try:
             with open(file, 'r') as f:
                 result = json.load(f)
+                print(f"Loaded result from {file}: {result}")  # Add this line to inspect
                 all_results.append(result)
         except Exception as e:
             print(f"Error loading {file}: {str(e)}")
@@ -45,16 +46,31 @@ def create_detailed_report(results, output_dir):
     comparison = []
     
     for result in results:
-        comparison.append({
-            'model_name': result['model_name'],
-            'character_accuracy': result['metrics']['character_accuracy'],
-            'word_accuracy': result['metrics']['word_accuracy'],
-            'diacritic_error_rate': result['metrics']['diacritic_error_rate'],
-            'model_size': result['model_size'],
-            'training_time': result['training_time'],
-            'inference_time': result['inference_time'],
-            **result['hyperparameters']
-        })
+        # If result is a list, you might need to access elements inside the list
+        if isinstance(result, list):
+            for item in result:
+                comparison.append({
+                    'model_name': item['model_name'],
+                    'character_accuracy': item['metrics']['character_accuracy'],
+                    'word_accuracy': item['metrics']['word_accuracy'],
+                    'diacritic_error_rate': item['metrics']['diacritic_error_rate'],
+                    'model_size': item['model_size'],
+                    'training_time': item['training_time'],
+                    'inference_time': item['inference_time'],
+                    **item['hyperparameters']
+                })
+        else:
+            comparison.append({
+                'model_name': result['model_name'],
+                'character_accuracy': result['metrics']['character_accuracy'],
+                'word_accuracy': result['metrics']['word_accuracy'],
+                'diacritic_error_rate': result['metrics']['diacritic_error_rate'],
+                'model_size': result['model_size'],
+                'training_time': result['training_time'],
+                'inference_time': result['inference_time'],
+                **result['hyperparameters']
+            })
+
     
     # Convert to DataFrame for easier analysis
     df = pd.DataFrame(comparison)
