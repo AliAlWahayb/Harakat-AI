@@ -5,3 +5,7 @@
 /2025/models
 /2025/old
 /2025/results
+2025/PreData/proxies_list.txt
+2025/PreData/failed_queries.csv
+2025/PreData/definitions.csv
+2025/PreData/all_data.jsonl
