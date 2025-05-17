@@ -3,14 +3,15 @@ import json
 import time
 import random
 import requests
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
+from threading import Lock
 
-
-CSV_PATH = 'siwar.csv'          # Your input queries file
-OUTPUT_ALL = 'all_data.jsonl'   # Full JSON data output
-OUTPUT_DEFS = 'definitions.csv' # Definitions output as CSV
-FAILED_QUERIES = 'failed_queries.csv'  # Failed queries output
-PROXIES_FILE = 'proxies_list.txt'      # Your proxies file
+CSV_PATH = 'siwar.csv'
+PROCESSED_QUERIES_FILE = 'processed_queries.txt'  # Track processed queries here
+OUTPUT_ALL = 'all_data.jsonl'
+OUTPUT_DEFS = 'definitions.csv'
+FAILED_QUERIES = 'failed_queries.csv'
+PROXIES_FILE = 'proxies_list.txt'
 
 API_URL_TEMPLATE = "https://siwar.ksaa.gov.sa/api/search/alt/global-public/{query}?lexiconIds=2202f51d-7d70-4472-9fc0-f178fb425463"
 
@@ -32,13 +33,17 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 OPR/99.0.4844.51",
 ]
 
+write_lock = Lock()
+processed_lock = Lock()
+
+
 class ProxyRotator:
     def __init__(self, proxy_list):
-        self.proxies = proxy_list
+        self.proxies = proxy_list.copy()
         self.index = 0
         self.count = len(proxy_list)
         self.fail_counts = {p: 0 for p in proxy_list}
-        self.max_failures = 3  # Remove proxy after 3 failures
+        self.max_failures = 3
 
     def get_next_proxy(self):
         if self.count == 0:
@@ -63,26 +68,48 @@ class ProxyRotator:
             if self.index >= self.count:
                 self.index = 0
 
+
+def load_processed_queries(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            return set(line.strip() for line in f if line.strip())
+    except FileNotFoundError:
+        return set()
+
+
+def save_processed_query(filename, query):
+    with processed_lock:
+        with open(filename, 'a', encoding='utf-8') as f:
+            f.write(query + '\n')
+
+
 def validate_proxy(proxy, timeout=5):
     test_url = "https://httpbin.org/ip"
-    proxies = {
-        "http": proxy,
-        "https": proxy,
-    }
-    headers = {
-        'User-Agent': random.choice(USER_AGENTS),
-    }
+    proxies = {"http": proxy, "https": proxy}
+    headers = {'User-Agent': random.choice(USER_AGENTS)}
     try:
         resp = requests.get(test_url, headers=headers, proxies=proxies, timeout=timeout, verify=False)
         if resp.status_code == 200:
             print(f"Proxy validated: {proxy}")
-            return True
+            return proxy
         else:
             print(f"Proxy failed status {resp.status_code}: {proxy}")
-            return False
+            return None
     except Exception as e:
         print(f"Proxy validation failed for {proxy}: {e}")
-        return False
+        return None
+
+
+def validate_proxies_concurrently(proxies, max_workers=20):
+    valid_proxies = []
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(validate_proxy, proxy): proxy for proxy in proxies}
+        for future in futures:
+            result = future.result()
+            if result:
+                valid_proxies.append(result)
+    return valid_proxies
+
 
 def fetch_data(session, query, proxy=None, user_agent=None, verify_ssl=False):
     url = API_URL_TEMPLATE.format(query=requests.utils.quote(query))
@@ -91,11 +118,7 @@ def fetch_data(session, query, proxy=None, user_agent=None, verify_ssl=False):
         'Accept': 'application/json',
         'Accept-Language': 'ar,en-US;q=0.9,en;q=0.8',
     }
-    proxies = {
-        "http": proxy,
-        "https": proxy,
-    } if proxy else None
-
+    proxies = {"http": proxy, "https": proxy} if proxy else None
     try:
         response = session.get(url, headers=headers, proxies=proxies, timeout=10, verify=verify_ssl)
         if response.status_code == 200:
@@ -107,46 +130,35 @@ def fetch_data(session, query, proxy=None, user_agent=None, verify_ssl=False):
         print(f"Exception for query '{query}' with proxy '{proxy}': {e}")
         return None
 
-def load_proxies(file_path):
-    proxies = []
-    with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            proxy = line.strip()
-            if proxy and not proxy.startswith('#'):
-                # Optional: ensure proxies start with http:// or https://
-                if not proxy.startswith("http://") and not proxy.startswith("https://"):
-                    proxy = "http://" + proxy
-                proxies.append(proxy)
-    return proxies
 
-def main():
-    print("Loading proxies from file...")
-    raw_proxies = load_proxies(PROXIES_FILE)
-    print(f"Loaded {len(raw_proxies)} proxies from {PROXIES_FILE}.")
+def process_query(session, query, proxy_rotator):
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        proxy = proxy_rotator.get_next_proxy()
+        if not proxy:
+            print("No proxies left to try in this thread.")
+            break
+        user_agent = random.choice(USER_AGENTS)
+        data = fetch_data(session, query, proxy=proxy, user_agent=user_agent)
+        if data:
+            return data
+        else:
+            proxy_rotator.report_failure(proxy)
+            time.sleep(random.uniform(2, 6))
+    return None
 
-    print("Validating proxies before starting scraping...")
-    valid_proxies = []
-    for p in raw_proxies:
-        if validate_proxy(p):
-            valid_proxies.append(p)
-    print(f"Proxy validation complete. {len(valid_proxies)} proxies are valid out of {len(raw_proxies)}.")
 
-    proxy_rotator = ProxyRotator(valid_proxies)
+def worker(queries, proxies, output_all_path, output_defs_path, failed_queries_path):
     session = requests.Session()
+    proxy_rotator = ProxyRotator(proxies)
 
-    with open(CSV_PATH, newline='', encoding='utf-8') as csvfile, \
-         open(OUTPUT_ALL, 'a', encoding='utf-8') as all_file, \
-         open(OUTPUT_DEFS, 'a', encoding='utf-8', newline='') as def_file, \
-         open(FAILED_QUERIES, 'a', encoding='utf-8', newline='') as fail_file:
-
-        reader = csv.DictReader(csvfile)
-        total_queries = sum(1 for _ in open(CSV_PATH, encoding='utf-8')) - 1
-        print(f"Total queries to process: {total_queries}")
+    with open(output_all_path, 'a', encoding='utf-8') as all_file, \
+            open(output_defs_path, 'a', encoding='utf-8', newline='') as def_file, \
+            open(failed_queries_path, 'a', encoding='utf-8', newline='') as fail_file:
 
         def_writer = csv.writer(def_file)
         fail_writer = csv.writer(fail_file)
 
-        # Write headers if files are empty
         def_file.seek(0, 2)
         fail_file.seek(0, 2)
         if def_file.tell() == 0:
@@ -154,24 +166,12 @@ def main():
         if fail_file.tell() == 0:
             fail_writer.writerow(['query'])
 
-        for idx, row in enumerate(reader, 1):
-            query = row['query']
-            user_agent = random.choice(USER_AGENTS)
+        for query in queries:
+            print(f"Thread {proxies[0]} processing query: {query[:30]}...")
+            data = process_query(session, query, proxy_rotator)
 
-            success = False
-            max_attempts = min(10, proxy_rotator.count)  # try up to 10 proxies max per query
-
-            for attempt in range(max_attempts):
-                proxy = proxy_rotator.get_next_proxy()
-                if not proxy:
-                    print("No proxies left to try.")
-                    break
-
-                print(f"[{idx}/{total_queries}] Trying '{query}' with proxy {proxy} and UA {user_agent[:50]} (Attempt {attempt+1}/{max_attempts})")
-                data = fetch_data(session, query, proxy=proxy, user_agent=user_agent, verify_ssl=False)
-
+            with write_lock:
                 if data:
-                    success = True
                     all_file.write(json.dumps({'query': query, 'data': data}, ensure_ascii=False) + "\n")
                     all_file.flush()
 
@@ -190,20 +190,79 @@ def main():
                         print(f"No definitions found for query '{query}'")
                         fail_writer.writerow([query])
                         fail_file.flush()
-                    break
+
+                    # Mark query as processed
+                    save_processed_query(PROCESSED_QUERIES_FILE, query)
+
                 else:
-                    print(f"Failed attempt {attempt+1} for query '{query}' with proxy {proxy}")
-                    proxy_rotator.report_failure(proxy)
-                    time.sleep(random.uniform(2, 6))
+                    print(f"Failed all attempts for query '{query}'")
+                    fail_writer.writerow([query])
+                    fail_file.flush()
 
-            if not success:
-                print(f"All attempts failed for query '{query}'")
-                fail_writer.writerow([query])
-                fail_file.flush()
+            time.sleep(random.uniform(2, 10))
 
-            time.sleep(random.uniform(2, 12))
+
+def load_proxies(file_path):
+    proxies = []
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            proxy = line.strip()
+            if proxy and not proxy.startswith('#'):
+                if not proxy.startswith("http://") and not proxy.startswith("https://"):
+                    proxy = "http://" + proxy
+                proxies.append(proxy)
+    return proxies
+
+
+def main():
+    print("Loading proxies from file...")
+    raw_proxies = load_proxies(PROXIES_FILE)
+    print(f"Loaded {len(raw_proxies)} proxies from {PROXIES_FILE}.")
+
+    print("Validating proxies concurrently before starting scraping...")
+    valid_proxies = validate_proxies_concurrently(raw_proxies)
+    print(f"Proxy validation complete. {len(valid_proxies)} proxies are valid out of {len(raw_proxies)}.")
+
+    if not valid_proxies:
+        print("No valid proxies found. Exiting.")
+        return
+
+    # Load processed queries set
+    processed_queries = load_processed_queries(PROCESSED_QUERIES_FILE)
+
+    # Load all queries from CSV, skipping processed ones
+    with open(CSV_PATH, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        queries = [row['query'] for row in reader if row['query'] not in processed_queries]
+
+    total_queries = len(queries)
+    print(f"Total queries to process (excluding processed): {total_queries}")
+
+    # Split proxies into 2 roughly equal parts
+    half_proxies = len(valid_proxies) // 2
+    proxies_thread_1 = valid_proxies[:half_proxies]
+    proxies_thread_2 = valid_proxies[half_proxies:]
+
+    print(f"Thread 1 proxies ({len(proxies_thread_1)}): {proxies_thread_1}")
+    print(f"Thread 2 proxies ({len(proxies_thread_2)}): {proxies_thread_2}")
+
+    # Split queries into 2 disjoint parts
+    half_queries = total_queries // 2
+    queries_thread_1 = queries[:half_queries]
+    queries_thread_2 = queries[half_queries:]
+
+    print(f"Thread 1 queries: {len(queries_thread_1)}")
+    print(f"Thread 2 queries: {len(queries_thread_2)}")
+
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        future1 = executor.submit(worker, queries_thread_1, proxies_thread_1, OUTPUT_ALL, OUTPUT_DEFS, FAILED_QUERIES)
+        future2 = executor.submit(worker, queries_thread_2, proxies_thread_2, OUTPUT_ALL, OUTPUT_DEFS, FAILED_QUERIES)
+
+        future1.result()
+        future2.result()
 
     print("Scraping completed!")
+
 
 if __name__ == "__main__":
     main()
