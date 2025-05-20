@@ -1,4 +1,5 @@
 import os
+import string
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -27,7 +28,8 @@ EMBEDDING_DIM = 256
 HIDDEN_DIM = 512
 DROPOUT_RATE = 0.3
 LEARNING_RATE = 1e-3
-EPOCHS = 50
+EPOCHS = 500
+PATIENCE = 7
 
 # Set device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -91,6 +93,30 @@ class ArabicDiacriticsDataProcessor:
         self.char_to_idx = {char: idx + 1 for idx, char in enumerate(sorted(unique_chars))}
         self.char_to_idx['<PAD>'] = 0  # Add padding token
         self.idx_to_char = {idx: char for char, idx in self.char_to_idx.items()}
+
+    def clean_text(self, text):
+        """Remove punctuation, special chars, digits, and Tatweel (ـ) from text."""
+        # Arabic Tatweel char
+        tatweel = 'ـ'
+        
+        # Define all punctuation + special characters to remove (Arabic + ASCII)
+        arabic_punctuations = '''`÷×؛<>_()*&^%][ـ،/:"؟.,'{}~¦+|!”…“–ـ'''
+        ascii_punctuations = string.punctuation  # !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+        all_punctuations = arabic_punctuations + ascii_punctuations
+        
+        # Remove Tatweel explicitly
+        text = text.replace(tatweel, '')
+        
+        # Remove punctuation and special characters
+        text = ''.join(ch for ch in text if ch not in all_punctuations)
+        
+        # Remove digits
+        text = ''.join(ch for ch in text if not ch.isdigit())
+        
+        # Optionally normalize spaces
+        text = ' '.join(text.split())
+        
+        return text
     
     def prepare_dataset(self, diacritized_texts):
         """Prepare dataset from diacritized texts"""
@@ -99,8 +125,12 @@ class ArabicDiacriticsDataProcessor:
         targets = []
         
         for text in diacritized_texts:
+            # Clean the text before processing
+            cleaned_text = self.clean_text(text)
+            
             # Remove diacritics for input
-            input_text = self.strip_diacritics(text)
+            input_text = self.strip_diacritics(cleaned_text)
+            
             # Extract diacritics for target
             diacritics = []
             
@@ -910,8 +940,8 @@ def run_hyperparameter_optimization():
         'hidden_dim': [512],
         'dropout_rate': [0.3],
         'learning_rate': [1e-3],
-        'epochs': [50],  # Set to a high value, early stopping will prevent overfitting
-        'patience': [5]
+        'epochs': [500],  # Set to a high value, early stopping will prevent overfitting
+        'patience': [7]
     }
     
     # Create all combinations of hyperparameters
@@ -953,7 +983,7 @@ def run_hyperparameter_optimization():
         json.dump(all_results, f, indent=4)
     
     # Create comparison report
-    create_comparison_report(all_results, results_dir)
+    # create_comparison_report(all_results, results_dir)
     
     return all_results
 
