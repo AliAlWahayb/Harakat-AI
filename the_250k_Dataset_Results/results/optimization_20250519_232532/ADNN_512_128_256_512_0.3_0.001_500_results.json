@@ -1,0 +1,20 @@
+{
+    "model_name": "ADNN_512_128_256_512_0.3_0.001_500",
+    "hyperparameters": {
+        "max_sequence_length": 512,
+        "batch_size": 128,
+        "embedding_dim": 256,
+        "hidden_dim": 512,
+        "dropout_rate": 0.3,
+        "learning_rate": 0.001,
+        "epochs": 500,
+        "patience": 7
+    },
+    "metrics": {
+        "character_accuracy": 0.9810355181293413
+    },
+    "model_size": 3400077,
+    "training_time": 24372.45266008377,
+    "inference_time": 57.61090898513794,
+    "timestamp": "2025-05-20 06:13:20"
+}

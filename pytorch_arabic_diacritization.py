@@ -20,7 +20,6 @@ import json
 from datetime import datetime
 import itertools
 
-
 # Constants
 MAX_SEQUENCE_LENGTH = 512
 BATCH_SIZE = 128
@@ -30,6 +29,7 @@ DROPOUT_RATE = 0.3
 LEARNING_RATE = 1e-3
 EPOCHS = 500
 PATIENCE = 7
+IMPROVEMENT_THRESHOLD = 0.00001  # Threshold for early stopping improvement
 
 # Set device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -371,13 +371,15 @@ class DiacritizationTrainer:
         train_loader, 
         val_loader=None, 
         learning_rate=LEARNING_RATE,
-        device=device
+        device=device,
+        checkpoint_path=None
     ):
         self.model = model
         self.train_loader = train_loader
         self.val_loader = val_loader
         self.learning_rate = learning_rate
         self.device = device
+        self.checkpoint_path = checkpoint_path
         
         # Move model to device
         self.model.to(self.device)
@@ -388,6 +390,13 @@ class DiacritizationTrainer:
         self.scheduler = optim.lr_scheduler.ReduceLROnPlateau(
             self.optimizer, 'min', factor=0.5, patience=3, min_lr=1e-6
         )
+        
+        # Load checkpoint if it exists
+        if self.checkpoint_path and os.path.exists(self.checkpoint_path):
+            checkpoint = torch.load(self.checkpoint_path, map_location=self.device)
+            self.model.load_state_dict(checkpoint['model_state_dict'])
+            self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            print(f"Resumed training from epoch {checkpoint['epoch'] + 1}")
     
     def train_epoch(self):
         self.model.train()
@@ -483,7 +492,7 @@ class DiacritizationTrainer:
                 print(f"Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}, Accuracy: {accuracy:.4f}")
                 
                 # Check for improvement
-                if val_loss < best_val_loss:
+                if val_loss < best_val_loss - IMPROVEMENT_THRESHOLD:
                     best_val_loss = val_loss
                     patience_counter = 0
                     
@@ -766,7 +775,6 @@ def load_csv_data_from_directory(directory_path, column_name='text_with_harakat'
     return all_samples
 
 
-
 def train_model(
     max_sequence_length=256, 
     batch_size=32, 
@@ -861,7 +869,8 @@ def train_model(
         train_loader=train_loader,
         val_loader=val_loader,
         learning_rate=learning_rate,
-        device=device
+        device=device,
+        checkpoint_path=checkpoint_path
     )
     
     model = trainer.train(
@@ -981,9 +990,6 @@ def run_hyperparameter_optimization():
     # Save all results
     with open(f"{results_dir}/all_results.json", 'w') as f:
         json.dump(all_results, f, indent=4)
-    
-    # Create comparison report
-    # create_comparison_report(all_results, results_dir)
     
     return all_results
 
