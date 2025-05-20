@@ -6,6 +6,8 @@ import gradio as gr
 import arabic_reshaper
 from bidi.algorithm import get_display
 from pytorch_arabic_diacritization import ArabicDiacriticsDataProcessor, SimplifiedArabicDiacritizationModel
+import re
+import unicodedata
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -13,18 +15,48 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 current_model = None
 current_processor = None
 
+def remove_tatweel(text):
+    """Remove Tatweel character explicitly"""
+    return text.replace('ـ', '')
+
+def remove_harakat_after_special_chars(text):
+    """
+    Remove Arabic diacritics (harakat) ONLY if they follow special characters.
+    Special chars are non-word, non-Arabic letters, non-space characters.
+    """
+    # Include Arabic question mark (؟) and other punctuation in special characters
+    special_chars_pattern = r'[^\w\s\u0600-\u06FF]|؟|،'
+    normalized = unicodedata.normalize('NFD', text)
+    
+    result = []
+    i = 0
+    length = len(normalized)
+    
+    while i < length:
+        char = normalized[i]
+        # If current char is special char or Arabic punctuation
+        if re.match(special_chars_pattern, char):
+            result.append(char)
+            i += 1
+            # Skip any following harakat combining marks
+            while i < length and unicodedata.category(normalized[i]) == 'Mn' and '\u064B' <= normalized[i] <= '\u0652':
+                i += 1
+        else:
+            result.append(char)
+            i += 1
+    
+    # Recompose back to NFC form
+    return unicodedata.normalize('NFC', ''.join(result))
+
 def load_model(model_path, processor_path):
     """Load the trained model and processor"""
     global current_model, current_processor
     
-    # Load processor
     with open(processor_path, 'rb') as f:
         current_processor = pickle.load(f)
     
-    # Load model
     checkpoint = torch.load(model_path, map_location=device)
     
-    # Create model
     model = SimplifiedArabicDiacritizationModel(
         vocab_size=len(current_processor.char_to_idx),
         diacritic_size=len(current_processor.diacritic_to_idx)
@@ -56,18 +88,19 @@ def list_available_models():
     return available_models
 
 def format_arabic(text):
-    """Format Arabic text with proper shaping and direction"""
     reshaped = arabic_reshaper.reshape(text)
     return get_display(reshaped)
 
 def diacritize(text):
-    """Main diacritization function"""
     global current_model, current_processor
     if not text.strip():
         return ""
     
     start_time = time.time()
     input_text = text.strip()
+    
+    # Preprocessing
+    input_text = remove_tatweel(input_text)
     
     # Encode and process
     encoded_input = current_processor.encode_input(input_text)
@@ -77,19 +110,22 @@ def diacritize(text):
         outputs = current_model(input_tensor)
         _, pred_indices = torch.max(outputs, dim=2)
     
+    # Post-processing
     pred_diacritics = current_processor.decode_diacritics(pred_indices[0].cpu().numpy()[:len(input_text)])
     diacritized_text = current_processor.apply_diacritics(input_text, pred_diacritics)
+    
+    # Clean up unwanted diacritics
+    diacritized_text = remove_tatweel(diacritized_text)
+    diacritized_text = remove_harakat_after_special_chars(diacritized_text)
     
     return diacritized_text, f"Processing time: {(time.time() - start_time)*1000:.2f} ms"
 
 def process_file(file):
-    """Process uploaded text file"""
     with open(file.name, 'r', encoding='utf-8') as f:
         content = f.read()
     diacritized, time_taken = diacritize(content)
     return diacritized, time_taken
 
-# Create Gradio interface
 available_models = list_available_models()
 model_choices = [m[0] for m in available_models] if available_models else []
 model_paths = {m[0]: (m[1], m[2]) for m in available_models}
@@ -117,7 +153,6 @@ with gr.Blocks(title="Arabic Diacritization", css=".arabic-text {direction: rtl;
         file_time = gr.Textbox(label="Processing Time")
         file_button = gr.Button("Process File")
     
-    # Model loading
     def load_selected_model(model_name):
         if model_name in model_paths:
             model_path, processor_path = model_paths[model_name]
@@ -130,18 +165,15 @@ with gr.Blocks(title="Arabic Diacritization", css=".arabic-text {direction: rtl;
         outputs=load_status
     )
     
-    # Initial model load
     if model_choices:
         load_selected_model(model_choices[0])
     
-    # Text processing
     text_button.click(
         diacritize,
         inputs=text_input,
         outputs=[text_output, time_text]
     )
     
-    # File processing
     file_button.click(
         process_file,
         inputs=file_input,

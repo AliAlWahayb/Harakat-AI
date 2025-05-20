@@ -8,3 +8,8 @@
 | Batch Inference + GPU Utilization | Reduce inference time      | Low            |
 | Multi-GPU Training                | Near-linear speedup        | Medium to High |
 | Profiling                         | Pinpoint bottlenecks       | Medium         |
+
+| proplem                       | Examples                   | fixes          |
+| --------------------------------- | -------------------------- | -------------- |
+| harakat to tatweel                | وَعُنْفُـهُـَا                  | remove at preprecessing and postprecessing
+| harakat to special chars          | ؟َ                          | remove at preprecessing and postprecessing

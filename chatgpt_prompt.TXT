@@ -1,3 +1,5 @@
+use this to get more data
+
 deepseek R1 gives better results than chatgpt
 
 
