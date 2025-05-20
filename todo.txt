@@ -1,0 +1,10 @@
+| Improvement                       | Expected Benefit           | Complexity     |
+| --------------------------------- | -------------------------- | -------------- |
+| Mixed Precision (AMP)             | 2x speedup on GPUs         | Low            |
+| Parallel Data Loading             | Faster data feeding        | Low            |
+| Gradient Accumulation             | Larger effective batch     | Low            |
+| AdamW + LR scheduler              | Faster convergence         | Low            |
+| Model Pruning + Quantization      | Smaller + faster inference | Medium         |
+| Batch Inference + GPU Utilization | Reduce inference time      | Low            |
+| Multi-GPU Training                | Near-linear speedup        | Medium to High |
+| Profiling                         | Pinpoint bottlenecks       | Medium         |
